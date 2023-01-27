@@ -10,5 +10,5 @@ class Composite(models.Model):
 
 class Component(models.Model):
     thickness = models.IntegerField(max_length=10)
-    material = models.ForeignKey(Material)
-    composite = models.ForeignKey(Composite)
+    material = models.ForeignKey(Material, on_delete=models.CASCADE)
+    composite = models.ForeignKey(Composite, on_delete=models.CASCADE)
