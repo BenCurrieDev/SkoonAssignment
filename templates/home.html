@@ -6,11 +6,46 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
   </head>
   <body>
-    <h1>Material U-Value Calculator</h1>
+    <div class="container">
+      <ol class="breadcrumb my-4">
+        <li class="breadcrumb-item active">Database</li>
+      </ol>
 
-    {% for material in materials %}
-      {{ material.name }} <br>
-    {% endfor %}
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th>Material</th>
+            <th>Thermal Conductivity (W/mK)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for material in materials %}
+            <tr>
+              <td>
+                {{ material.name }}
+              </td>
+              <td class="align-middle">
+                {{material.thermal_conductivity}}
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th>Composite</th>
+            <th>Materials</th>
+            <th>Thickness (mm)</th>
+            <th>U-Value (W/m<sup>2</sup>K)</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  
 
   </body>
 </html>
