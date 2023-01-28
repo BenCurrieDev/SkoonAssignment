@@ -29,4 +29,28 @@
         <button type="submit" class="btn btn-success">Add Material</button>
         
     </form>
+
+    <h2 class="mt-4 mb-2">Component Display</h2>
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th>Material</th>
+            <th>Thickness (mm)</th>
+            <th>R</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for component in components %}
+            <tr>
+              <td>
+                {{ component.material.name }}
+              </td>
+              <td class="align-middle">
+                {{component.thickness}
+              </td>
+              <td>N/A</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
 {% endblock %}

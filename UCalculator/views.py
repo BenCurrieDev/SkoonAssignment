@@ -11,8 +11,15 @@ def home(request):
 def calculator(request):
     materials = Material.objects.all()
     composites = Composite.objects.all()
+    components = Component.objects.all()
     context = {
         'materials': materials,
         'composites': composites,
+        'components': components,
     }
+
+    if request.method == 'POST':
+        material = request.post['material']
+        thickness = request.post['thickness']
+        
     return render(request, 'calculator.html', context)
