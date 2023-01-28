@@ -8,7 +8,6 @@ class HomeTests(TestCase):
     def setUp(self):
         url = reverse('home')
         self.response = self.client.get(url)
-        print(self.response)
 
     def test_home_view_status_code(self):
         self.assertEquals(self.response.status_code, 200)
