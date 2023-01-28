@@ -15,7 +15,7 @@ class HomeTests(TestCase):
     def test_home_url_resolves_home_view(self):
         view = resolve('/')
         self.assertEquals(view.func, home)
-    
+
 class CalculatorTests(TestCase):
     def test_calculator_view_status_code(self):
         url = reverse('calculator')
