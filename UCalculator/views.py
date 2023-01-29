@@ -17,7 +17,7 @@ def calculator(request):
     materials = Material.objects.all()
     composites = Composite.objects.all()
     components = Component.objects.all()
-    user = User.objects.first() # NEED TO REPLACE WITH ACTUAL USER
+    user = request.user
 
     if request.method == 'POST':
         form = NewComponentForm(request.POST)
