@@ -20,7 +20,7 @@ def home(request):
 def calculator(request):
     materials = Material.objects.all()
     composites = Composite.objects.filter(user=request.user).all()
-    components = Component.objects.filter(user=request.user).all()
+    components = Component.objects.filter(user=request.user).filter(active=True).all()
     user = request.user
 
     if request.method == 'POST':
