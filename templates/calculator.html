@@ -1,37 +1,33 @@
 {% extends 'base.html' %}
 
-{% block content %}
-    <h1>Material U-Value Calculator</h1>
-    <form method="POST">
-        {% csrf_token %}
+{% load widget_tweaks %}
 
+{% block content %}
+    
+    <h1>Material U-Value Calculator</h1>
+    
+    <form method="POST">
+
+        {% csrf_token %}
         <div class="form-group">
-            <label for="select_mat">Select Material:</label>
-            <select name="material" id="select_mat" class="form-control">
-                <optgroup label="Basic Material">
-                    {% for material in materials %}
-                    <option value={{ material.id }}>{{ material.name }}</option>
-                    {% endfor %}
-                </optgroup>
-                <optgroup label="Composite Material">
-                    {% for composite in composites %}
-                    <option value={{ composite.id }}>{{ composite.name }}</option>
-                    {% endfor %}
-                </optgroup>
-            </select>
-        </div>
-        
-        <div class="form-group">
-            <label for="def_thickness">Thickness (mm):</label>
-            <input type="number" class="form-control" name="thickness" id="def_thickness">
+
+            <label for="material">Select Material:</label>
+            {% render_field form.material id="material" class="form-control" %}
+
+            <label for="thickness">Thickness (mm):</label>
+            {% render_field form.thickness id="thickness" class="form-control" %}
+
         </div>
 
         <button type="submit" class="btn btn-success">Add Material</button>
         
     </form>
 
+
     <h2 class="mt-4 mb-2">Component Display</h2>
+
     <table class="table">
+
         <thead class="thead-dark">
           <tr>
             <th>Material</th>
@@ -39,6 +35,7 @@
             <th>R</th>
           </tr>
         </thead>
+
         <tbody>
           {% for component in components %}
             <tr>
@@ -52,5 +49,7 @@
             </tr>
           {% endfor %}
         </tbody>
+
       </table>
+
 {% endblock %}
