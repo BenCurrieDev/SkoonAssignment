@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Material, Composite, Component
 
@@ -19,7 +19,14 @@ def calculator(request):
     }
 
     if request.method == 'POST':
-        material = request.post['material']
-        thickness = request.post['thickness']
-        
+        material = Material.objects.get(pk=request.POST['material'])
+        thickness = int(request.POST['thickness'])
+
+        component = Component.objects.create(
+            material=material,
+            thickness=thickness
+        )
+
+        return redirect('calculator')
+
     return render(request, 'calculator.html', context)

@@ -10,12 +10,12 @@
             <select name="material" id="select_mat" class="form-control">
                 <optgroup label="Basic Material">
                     {% for material in materials %}
-                    <option value={{material}}>{{material.name}}</option>
+                    <option value={{ material.id }}>{{ material.name }}</option>
                     {% endfor %}
                 </optgroup>
                 <optgroup label="Composite Material">
                     {% for composite in composites %}
-                    <option value={{composite}}>{{composite.name}}</option>
+                    <option value={{ composite.id }}>{{ composite.name }}</option>
                     {% endfor %}
                 </optgroup>
             </select>
