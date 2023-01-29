@@ -20,6 +20,10 @@ class Component(models.Model):
     composite = models.ForeignKey(Composite, on_delete=models.CASCADE, blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     active = models.BooleanField(default=True)
+
+    def calcR(self):
+        return self.thickness / self.material.thermal_conductivity
+
     def __str__(self):
         return self.material.name + ' (' + str(self.thickness) + 'mm)'
 
