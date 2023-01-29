@@ -9,16 +9,15 @@
     <form method="POST">
 
         {% csrf_token %}
+        <div class="form-group">
 
-        {% for field in form %}
-            <div class="form-group">
+            <label for="material">Select Material:</label>
+            {% render_field form.material id="material" class="form-control" %}
 
-                {{ field.label_tag }}
+            <label for="thickness">Thickness (mm):</label>
+            {% render_field form.thickness id="thickness" class="form-control" %}
 
-                {% render_field field class="form-control" %}
-
-            </div>
-        {% endfor %}
+        </div>
 
         <button type="submit" class="btn btn-success">Add Material</button>
         
