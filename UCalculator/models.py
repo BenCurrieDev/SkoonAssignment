@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Material(models.Model):
@@ -9,6 +10,7 @@ class Material(models.Model):
 
 class Composite(models.Model):
     name = models.CharField(max_length=30, unique=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
         return self.name
 
@@ -16,6 +18,7 @@ class Component(models.Model):
     thickness = models.IntegerField()
     material = models.ForeignKey(Material, on_delete=models.CASCADE)
     composite = models.ForeignKey(Composite, on_delete=models.CASCADE, blank=True, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
         return self.material.name + ' (' + str(self.thickness) + 'mm)'
 
