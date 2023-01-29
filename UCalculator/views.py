@@ -4,12 +4,15 @@ from .models import Material, Composite, Component
 from django.contrib.auth.models import User
 from .forms import NewComponentForm
 
-# Create your views here.
+from django.contrib.auth.decorators import login_required
+
+@login_required
 def home(request):
     materials = Material.objects.all()
     context = { 'materials': materials }
     return render(request, 'home.html', context)
 
+@login_required
 def calculator(request):
     materials = Material.objects.all()
     composites = Composite.objects.all()
