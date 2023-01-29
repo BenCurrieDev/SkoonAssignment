@@ -4,29 +4,30 @@
     <meta charset="utf-8">
     <title>{% block title %}Skoon u-calc{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    {% block stylesheet %}{% endblock %}
   </head>
   <body>
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <p class="navbar-brand mb-0 h1">Skoon<sub>u-calc</sub></p>
-            <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link mr-4" href={% url 'home' %}>Database</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href={% url 'calculator' %}>Calculator</a>
-                  </li>
-              </ul>
+    {% block body %}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <p class="navbar-brand mb-0 h1">Skoon<sub>u-calc</sub></p>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link mr-4" href={% url 'home' %}>Database</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href={% url 'calculator' %}>Calculator</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    
+        <div class="container pt-4">
+            <div class="mx-4">
+                {% block content %}
+                {% endblock %}
+            </div>
         </div>
-    </nav>
-   
-    <div class="container pt-4">
-        <div class="mx-4">
-            {% block content %}
-            {% endblock %}
-        </div>
-    </div>
-
+    {% endblock body %}
   </body>
 </html>
