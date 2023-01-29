@@ -9,14 +9,18 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def home(request):
     materials = Material.objects.all()
-    context = { 'materials': materials }
+    composites = Composite.objects.filter(user=request.user).all()
+    context = { 
+        'materials': materials,
+        'composites': composites
+         }
     return render(request, 'home.html', context)
 
 @login_required
 def calculator(request):
     materials = Material.objects.all()
-    composites = Composite.objects.all()
-    components = Component.objects.all()
+    composites = Composite.objects.filter(user=request.user).all()
+    components = Component.objects.filter(user=request.user).all()
     user = request.user
 
     if request.method == 'POST':
