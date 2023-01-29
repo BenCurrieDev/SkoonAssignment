@@ -15,6 +15,7 @@ class Composite(models.Model):
 class Component(models.Model):
     thickness = models.IntegerField()
     material = models.ForeignKey(Material, on_delete=models.CASCADE)
-    composite = models.ForeignKey(Composite, on_delete=models.CASCADE)
+    composite = models.ForeignKey(Composite, on_delete=models.CASCADE, blank=True, null=True)
     def __str__(self):
-        return self.material.name + ' (' + self.thickness + 'mm)'
+        return self.material.name + ' (' + str(self.thickness) + 'mm)'
+
