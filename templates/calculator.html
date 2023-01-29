@@ -1,16 +1,34 @@
 {% extends 'base.html' %}
 
+{% load widget_tweaks %}
+
 {% block content %}
+    
     <h1>Material U-Value Calculator</h1>
+    
     <form method="POST">
+
         {% csrf_token %}
-        {{ form.as_table }}
+
+        {% for field in form %}
+            <div class="form-group">
+
+                {{ field.label_tag }}
+
+                {% render_field field class="form-control" %}
+
+            </div>
+        {% endfor %}
+
         <button type="submit" class="btn btn-success">Add Material</button>
         
     </form>
 
+
     <h2 class="mt-4 mb-2">Component Display</h2>
+
     <table class="table">
+
         <thead class="thead-dark">
           <tr>
             <th>Material</th>
@@ -18,6 +36,7 @@
             <th>R</th>
           </tr>
         </thead>
+
         <tbody>
           {% for component in components %}
             <tr>
@@ -31,5 +50,7 @@
             </tr>
           {% endfor %}
         </tbody>
+
       </table>
+
 {% endblock %}
