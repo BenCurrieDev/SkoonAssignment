@@ -27,6 +27,16 @@
 
     <h3 class="mt-4 mb-2">Component Display{% if composites %}: {{ active_composite.name }}{% endif %}</h3>
 
+    <div style="display:flex; justify-content:center; height:10rem; margin-block: 1rem;">
+      {% if components %}
+        <div style="height:100%; border:2px solid black; width: auto;">
+          {% for component in components %}
+            <div style="height:100%; width:{{ component.thickness }}px;"></div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+
     <table class="table">
 
         <thead class="thead-dark">
