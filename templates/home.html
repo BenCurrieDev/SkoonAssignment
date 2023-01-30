@@ -27,12 +27,24 @@
     <thead class="thead-dark">
       <tr>
         <th>Composite</th>
-        <th>Materials</th>
         <th>Thickness (mm)</th>
         <th>U-Value (W/m<sup>2</sup>K)</th>
       </tr>
     </thead>
     <tbody>
+      {% for composite in composites %}
+      <tr>
+        <td>
+          {{ composite.name }}
+        </td>
+        <td class="align-middle">
+          {{ composite.calcThickness }}
+        </td>
+        <td class="align-middle">
+          {{ composite.calcU }}
+        </td>
+      </tr>
+    {% endfor %}
     </tbody>
   </table>
 </div>

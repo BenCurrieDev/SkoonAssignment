@@ -13,6 +13,19 @@ class Composite(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     active = models.BooleanField(default=True)
 
+    def calcThickness(self):
+        components = self.component_set.all()
+        thicknesses = [component.thickness for component in components]
+        return sum(thicknesses)
+
+    def calcU(self):
+        components = self.component_set.all()
+        if components:
+            Rs = [component.calcR() for component in components]
+            return round(1/(0.13 + sum(Rs) + 0.04), 2)
+        else:
+            return 'N/A'
+
     def __str__(self):
         return self.name
 
