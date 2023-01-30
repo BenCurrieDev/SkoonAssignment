@@ -24,3 +24,7 @@ class LoadForm(forms.ModelForm):
     class Meta:
         model = Component
         fields = ['composite']
+
+class InsulatorForm(forms.Form):
+    calculate_insulation = forms.BooleanField(widget=forms.HiddenInput, initial=True)
+    target_u = forms.FloatField(max_length=10)
