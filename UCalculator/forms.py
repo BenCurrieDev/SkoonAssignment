@@ -11,5 +11,9 @@ class NewComponentForm(forms.ModelForm):
 class ClearForm(forms.Form):
     clear_material_view = forms.BooleanField(widget=forms.HiddenInput, initial=True)
 
-class SaveForm(forms.Form):
+class SaveForm(forms.ModelForm):
     save_composite = forms.BooleanField(widget=forms.HiddenInput, initial=True)
+
+    class Meta:
+        model = Composite
+        fields = ['name']
