@@ -9,17 +9,18 @@
     <form method="POST">
 
         {% csrf_token %}
+        {% render_field component_form.add_material %}
         <div class="form-group">
 
             <label for="material">Select Material:</label>
-            {% render_field form.material id="material" class="form-control" %}
+            {% render_field component_form.material id="material" class="form-control" %}
 
             <label for="thickness">Thickness (mm):</label>
-            {% render_field form.thickness id="thickness" class="form-control" %}
+            {% render_field component_form.thickness id="thickness" class="form-control" %}
 
         </div>
 
-        <button type="submit" class="btn btn-success">Add Material</button>
+        <button type="submit" class="btn btn-success" name="addMaterialButton">Add Material</button>
         
     </form>
 
@@ -52,4 +53,15 @@
 
       </table>
 
+      <h3>{{ uVal }}</h3>
+      <h3>U Value</h3>
+      
+      
+      <form method="POST">
+        {% csrf_token %}
+        {% render_field clear_form.clear_material_view %}
+        <input type="submit" value="Clear Material View" class="btn btn-danger" name="clearButton">
+      </form>
+
 {% endblock %}
+
