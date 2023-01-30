@@ -27,4 +27,4 @@ class LoadForm(forms.ModelForm):
 
 class InsulatorForm(forms.Form):
     calculate_insulation = forms.BooleanField(widget=forms.HiddenInput, initial=True)
-    target_u = forms.FloatField(max_length=10)
+    target_u = forms.FloatField()
