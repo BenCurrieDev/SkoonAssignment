@@ -32,7 +32,7 @@ def calculator(request):
         print(rList)
         rSum = sum(rList)
         print(rSum)
-        uVal = (1 / (0.13 + rSum + 0.04))
+        uVal = round(1 / (0.13 + rSum + 0.04), 2)
 
 
     if request.method == 'POST':
