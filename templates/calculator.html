@@ -56,16 +56,17 @@
         <h3>{{ uVal }}</h3>
         <h3>U Value</h3>
       </div>
-
-      <div>
-        <form method="POST">
-          {% csrf_token %}
-          {% render_field insulator_form.calculate_insulation %}
-          {% render_field insulator_form.target_u id="target_u" class="form-control" %}
-          <input type="submit" value="Calculate Additional Insulation" class="btn btn-success" name="saveButton">
-        </form>
-      </div>
       
+      {% if components %}
+        <div>
+          <form method="POST">
+            {% csrf_token %}
+            {% render_field insulator_form.calculate_insulation %}
+            {% render_field insulator_form.target_u id="target_u" class="form-control" %}
+            <input type="submit" value="Calculate Additional Insulation" class="btn btn-success" name="saveButton">
+          </form>
+        </div>
+      {% endif %}
       
       <form method="POST">
         {% csrf_token %}
