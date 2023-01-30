@@ -47,7 +47,6 @@ def calculator(request):
         
         if 'clear_material_view' in request.POST:
             for component in components:
-                print(component)
                 if component.composite:
                     component.active = False
                 else:
