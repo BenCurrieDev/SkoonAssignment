@@ -11,6 +11,8 @@ class Material(models.Model):
 class Composite(models.Model):
     name = models.CharField(max_length=30, unique=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    active = models.BooleanField(default=True)
+
     def __str__(self):
         return self.name
 

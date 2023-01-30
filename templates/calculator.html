@@ -62,7 +62,13 @@
         {% render_field clear_form.clear_material_view %}
         <input type="submit" value="Clear Material View" class="btn btn-danger" name="clearButton">
       </form>
-
+      
+      <form method="POST">
+        {% csrf_token %}
+        {% render_field save_form.save_composite %}
+        {% render_field save_form.name id="name" class="form-control" %}
+        <input type="submit" value="Save Composite Material" class="btn btn-success" name="saveButton">
+      </form>
       
 
 {% endblock %}

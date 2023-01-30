@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Material, Composite, Component
 from django.contrib.auth.models import User
-from .forms import NewComponentForm, ClearForm
+from .forms import NewComponentForm, ClearForm, SaveForm
 
 from django.contrib.auth.decorators import login_required
 
@@ -19,7 +19,7 @@ def home(request):
 @login_required
 def calculator(request):
     materials = Material.objects.all()
-    composites = Composite.objects.filter(user=request.user).all()
+    composites = Composite.objects.filter(user=request.user).filter(active=True).all()
     components = Component.objects.filter(user=request.user).filter(active=True).all()
     user = request.user
     
@@ -29,9 +29,7 @@ def calculator(request):
 
     if components:
         rList = [component.calcR() for component in components]
-        print(rList)
         rSum = sum(rList)
-        print(rSum)
         uVal = round(1 / (0.13 + rSum + 0.04), 2)
 
 
@@ -49,18 +47,34 @@ def calculator(request):
             for component in components:
                 if component.composite:
                     component.active = False
+                    component.save()
                 else:
                     component.delete()
-            components = Component.objects.filter(user=request.user).filter(active=True).all()
-            uVal = 'N/A'
-    
+            return redirect('calculator')
+        
+        if 'save_composite' in request.POST:
+            print('Saving...')
+            form = SaveForm(request.POST)
+            if form.is_valid():
+                composite = form.save(commit=False)
+                composite.user = user
+                composite.save()
+                print('Saved composite. Attempting to update component relations...')
+                for component in components:
+                    component.composite = composite
+                    component.save()
+                return redirect('calculator')
+
     component_form = NewComponentForm()
+    save_form = SaveForm()
+
     context = {
         'materials': materials,
         'composites': composites,
         'components': components,
         'component_form': component_form,
         'clear_form': clear_form,
+        'save_form': save_form,
         'uVal': uVal
     }
         
