@@ -29,9 +29,9 @@
 
     <div style="display:flex; justify-content:center; height:10rem; margin-block: 1rem;">
       {% if components %}
-        <div style="height:100%; border:2px solid black; width: auto;">
+        <div style="height:100%; border:2px solid black; width: auto; display: flex;">
           {% for component in components %}
-            <div style="height:100%; width:{{ component.thickness }}px;"></div>
+            <div style="height:100%; width:{{ component.thickness }}px; background-color:{{ component.material.color }}"></div>
           {% endfor %}
         </div>
       {% endif %}
