@@ -64,13 +64,23 @@
       </form>
       
       {% if not composites %}
+
         <form method="POST">
           {% csrf_token %}
           {% render_field save_form.save_composite %}
           {% render_field save_form.name id="name" class="form-control" %}
-          <input type="submit" value="Save Composite Material" class="btn btn-success" name="saveButton">
+          <input type="submit" value="Save New Composite Material" class="btn btn-success" name="saveButton">
         </form>
+      
       {% endif %}
+
+        <form method="GET">
+          {% csrf_token %}
+          {% render_field load_form.load_composite %}
+          {% render_field load_form.composite id="load" class="form-control" %}
+          <input type="submit" value="Load Composite Material" class="btn btn-success" name="loadButton">
+        </form>
+
 
 
       

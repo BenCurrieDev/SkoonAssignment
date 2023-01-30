@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Material, Composite, Component
 from django.contrib.auth.models import User
-from .forms import NewComponentForm, ClearForm, SaveForm
+from .forms import NewComponentForm, ClearForm, SaveForm, LoadForm
 
 from django.contrib.auth.decorators import login_required
 
@@ -18,6 +18,18 @@ def home(request):
 
 @login_required
 def calculator(request):
+
+    def deactivate():
+        for component in components:
+            if component.composite:
+                component.active = False
+                component.save()
+            else:
+                component.delete()
+        if composites:
+            active_composite.active = False
+            active_composite.save()
+
     materials = Material.objects.all()
     composites = Composite.objects.filter(user=request.user).filter(active=True).all()
     if composites:
@@ -45,38 +57,43 @@ def calculator(request):
                 return redirect('calculator')
         
         if 'clear_material_view' in request.POST:
-            print('Clearing...')
-            for component in components:
-                if component.composite:
-                    component.active = False
-                    component.save()
-                else:
-                    component.delete()
-            if composites:
-                active_composite.active = False
-                active_composite.save()
+            deactivate()
             return redirect('calculator')
         
         if 'save_composite' in request.POST:
-            print('Saving...')
             if components:
                 form = SaveForm(request.POST)
                 if form.is_valid():
-                    print('Save was valid')
-                    active_composite.active = False
-                    active_composite.save()
+                    if composites:
+                        active_composite.active = False
+                        active_composite.save()
                     composite = form.save(commit=False)
                     composite.user = user
                     composite.save()
-                    print('Saved composite. Attempting to update component relations...')
                     for component in components:
                         component.composite = composite
                         component.save()
-                    
                     return redirect('calculator')
+
+    if request.method == 'GET':
+        if 'load_composite' in request.GET:
+            form = LoadForm(request.GET)
+            if form.is_valid():
+                composite_id = request.GET['composite']
+                if composite_id.isdigit():
+                    deactivate()
+                    to_load = Composite.objects.get(pk=composite_id)
+                    to_load.active = True
+                    to_load.save()
+                    for component in to_load.component_set.all():
+                        component.active = True
+                        component.save()
+                    return redirect('calculator')
+            
 
     component_form = NewComponentForm()
     save_form = SaveForm()
+    load_form = LoadForm()
 
     context = {
         'materials': materials,
@@ -86,6 +103,7 @@ def calculator(request):
         'component_form': component_form,
         'clear_form': clear_form,
         'save_form': save_form,
+        'load_form': load_form,
         'uVal': uVal
     }
         

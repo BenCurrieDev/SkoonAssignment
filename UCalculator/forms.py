@@ -17,3 +17,10 @@ class SaveForm(forms.ModelForm):
     class Meta:
         model = Composite
         fields = ['name']
+
+class LoadForm(forms.ModelForm):
+    load_composite = forms.BooleanField(widget=forms.HiddenInput, initial=True)
+
+    class Meta:
+        model = Component
+        fields = ['composite']
