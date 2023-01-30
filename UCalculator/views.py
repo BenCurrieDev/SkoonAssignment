@@ -44,7 +44,7 @@ def calculator(request):
         rList = [component.calcR() for component in components]
         rSum = sum(rList)
         uVal = round(1 / (0.13 + rSum + 0.04), 2)
-
+    insulation = ''
 
     if request.method == 'POST':
         
@@ -74,6 +74,13 @@ def calculator(request):
                         component.composite = composite
                         component.save()
                     return redirect('calculator')
+        
+        if 'calculate_insulation' in request.POST:
+            form = InsulatorForm(request.POST)
+            if form.is_valid():
+                target_u = request.POST['target_u']
+                insulation = round(0.022 * (1/float(target_u) - rSum)* 1000)
+
 
     if request.method == 'GET':
         if 'load_composite' in request.GET:
@@ -106,7 +113,8 @@ def calculator(request):
         'save_form': save_form,
         'load_form': load_form,
         'insulator_form': insulator_form,
-        'uVal': uVal
+        'uVal': uVal,
+        'insulation': insulation
     }
         
     return render(request, 'calculator.html', context)
