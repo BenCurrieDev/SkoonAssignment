@@ -20,6 +20,7 @@ def home(request):
 def calculator(request):
     materials = Material.objects.all()
     composites = Composite.objects.filter(user=request.user).filter(active=True).all()
+    active_composite = composites[0]
     components = Component.objects.filter(user=request.user).filter(active=True).all()
     user = request.user
     
@@ -71,6 +72,7 @@ def calculator(request):
     context = {
         'materials': materials,
         'composites': composites,
+        'active_composite': active_composite,
         'components': components,
         'component_form': component_form,
         'clear_form': clear_form,
