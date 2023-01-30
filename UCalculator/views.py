@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Material, Composite, Component
 from django.contrib.auth.models import User
-from .forms import NewComponentForm, ClearForm, SaveForm, LoadForm
+from .forms import NewComponentForm, ClearForm, SaveForm, LoadForm, InsulatorForm
 
 from django.contrib.auth.decorators import login_required
 
@@ -94,6 +94,7 @@ def calculator(request):
     component_form = NewComponentForm()
     save_form = SaveForm()
     load_form = LoadForm()
+    insulator_form = InsulatorForm()
 
     context = {
         'materials': materials,
@@ -104,6 +105,7 @@ def calculator(request):
         'clear_form': clear_form,
         'save_form': save_form,
         'load_form': load_form,
+        'insulator_form': insulator_form,
         'uVal': uVal
     }
         
