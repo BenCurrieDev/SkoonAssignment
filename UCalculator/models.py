@@ -22,7 +22,10 @@ class Component(models.Model):
     active = models.BooleanField(default=True)
 
     def calcR(self):
-        return round((self.thickness / self.material.thermal_conductivity), 1)
+        return ((self.thickness * 0.001) / self.material.thermal_conductivity)
+    
+    def displayR(self):
+        return round((self.thickness * 0.001) / self.material.thermal_conductivity, 1)
 
     def __str__(self):
         return self.material.name + ' (' + str(self.thickness) + 'mm)'

@@ -29,7 +29,9 @@ def calculator(request):
 
     if components:
         rList = [component.calcR() for component in components]
+        print(rList)
         rSum = sum(rList)
+        print(rSum)
         uVal = (1 / (0.13 + rSum + 0.04))
 
 
