@@ -20,14 +20,14 @@ def home(request):
 def calculator(request):
     materials = Material.objects.all()
     composites = Composite.objects.filter(user=request.user).filter(active=True).all()
-    active_composite = composites[0]
+    if composites:
+        active_composite = composites[0]
+    else:
+        active_composite = ''
     components = Component.objects.filter(user=request.user).filter(active=True).all()
     user = request.user
-    
     clear_form = ClearForm()
-    
     uVal = 'N/A'
-
     if components:
         rList = [component.calcR() for component in components]
         rSum = sum(rList)
@@ -45,26 +45,35 @@ def calculator(request):
                 return redirect('calculator')
         
         if 'clear_material_view' in request.POST:
+            print('Clearing...')
             for component in components:
                 if component.composite:
                     component.active = False
                     component.save()
                 else:
                     component.delete()
+            if composites:
+                active_composite.active = False
+                active_composite.save()
             return redirect('calculator')
         
         if 'save_composite' in request.POST:
             print('Saving...')
-            form = SaveForm(request.POST)
-            if form.is_valid():
-                composite = form.save(commit=False)
-                composite.user = user
-                composite.save()
-                print('Saved composite. Attempting to update component relations...')
-                for component in components:
-                    component.composite = composite
-                    component.save()
-                return redirect('calculator')
+            if components:
+                form = SaveForm(request.POST)
+                if form.is_valid():
+                    print('Save was valid')
+                    active_composite.active = False
+                    active_composite.save()
+                    composite = form.save(commit=False)
+                    composite.user = user
+                    composite.save()
+                    print('Saved composite. Attempting to update component relations...')
+                    for component in components:
+                        component.composite = composite
+                        component.save()
+                    
+                    return redirect('calculator')
 
     component_form = NewComponentForm()
     save_form = SaveForm()
