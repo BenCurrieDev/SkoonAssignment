@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Material, Composite, Component
 from django.contrib.auth.models import User
-from .forms import NewComponentForm, ClearForm, SaveForm, LoadForm, InsulatorForm
+from .forms import NewComponentForm, ClearForm, SaveForm, LoadForm, InsulatorForm, DeleteForm
 
 from django.contrib.auth.decorators import login_required
 
@@ -10,10 +10,22 @@ from django.contrib.auth.decorators import login_required
 def home(request):
     materials = Material.objects.all()
     composites = Composite.objects.filter(user=request.user).all()
+    delete = DeleteForm()
     context = { 
         'materials': materials,
-        'composites': composites
+        'composites': composites,
+        'delete': delete
          }
+    
+    if request.method == "POST":
+          if 'delete_composite' in request.POST: 
+            form = DeleteForm(request.POST)
+            if form.is_valid():
+                to_del = request.POST['to_delete']
+                composites.get(pk=to_del).delete()
+                redirect('home')
+                
+
     return render(request, 'home.html', context)
 
 @login_required

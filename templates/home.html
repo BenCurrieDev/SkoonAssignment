@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load widget_tweaks %}
+
 {% block content %}
 <h2>Materials Database</h2>
   <table class="table">
@@ -29,6 +31,7 @@
         <th>Composite</th>
         <th>Thickness (mm)</th>
         <th>U-Value (W/m<sup>2</sup>K)</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -43,6 +46,12 @@
         <td class="align-middle">
           {{ composite.calcU }}
         </td>
+        <td><form method="POST">
+          {% csrf_token %}
+          {% render_field delete.delete_composite %}
+          {% render_field delete.to_delete value=composite.pk %}
+          <input type="submit" value="Delete" class="btn btn-danger" name="deleteButton">
+        </form></td>
       </tr>
     {% endfor %}
     </tbody>

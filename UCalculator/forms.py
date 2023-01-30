@@ -28,3 +28,7 @@ class LoadForm(forms.ModelForm):
 class InsulatorForm(forms.Form):
     calculate_insulation = forms.BooleanField(widget=forms.HiddenInput, initial=True)
     target_u = forms.FloatField()
+
+class DeleteForm(forms.Form):
+    delete_composite = forms.BooleanField(widget=forms.HiddenInput, initial=True)
+    to_delete = forms.CharField(widget=forms.HiddenInput)
