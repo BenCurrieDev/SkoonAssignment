@@ -4,107 +4,127 @@
 
 {% block content %}
     
-    <h2>Material U-Value Calculator</h2>
+    <h1 class="page-heading">skoonUlator</h1>
     
-    <form method="POST">
+    <form method="POST" class="component-form">
 
         {% csrf_token %}
         {% render_field component_form.add_material %}
-        <div class="form-group">
+        <label for="material" class="material-label">Select Material</label>
+        {% render_field component_form.material id="material" class="material-input my-input" %}
+           
+        <label for="thickness" class="thickness-label">Depth (mm)</label>
+        {% render_field component_form.thickness id="thickness" class="thickness-input" placeholder="10" style="text-align:right;" %}
+            
 
-            <label for="material">Select Material:</label>
-            {% render_field component_form.material id="material" class="form-control" %}
-
-            <label for="thickness">Thickness (mm):</label>
-            {% render_field component_form.thickness id="thickness" class="form-control" %}
-
-        </div>
-
-        <button type="submit" class="btn btn-success" name="addMaterialButton">Add Material</button>
+        <button type="submit" class="my-button my-submit component-submit" name="addMaterialButton">Add Material</button>
         
     </form>
 
 
-    <h3 class="mt-4 mb-2">Component Display{% if composites %}: {{ active_composite.name }}{% endif %}</h3>
+    <h4 class="header2" style="height: 3rem">{% if composites %}{{ active_composite.name }}{% else %}Materials{% endif %}</h4>
 
-    <div style="display:flex; justify-content:center; height:10rem; margin-block: 1rem;">
+    <div class="display-wall" style="display:flex; justify-content:center; height:20rem; margin-block: 1rem;">
       {% if components %}
-        <div style="height:100%; border:2px solid black; width: auto; display: flex;">
+        <div style="height:100%; border-right:2px solid black; border-left:2px solid black; width: auto; display: flex;">
           {% for component in components %}
             <div style="height:100%; width:{{ component.thickness }}px; background-color:{{ component.material.color }}"></div>
           {% endfor %}
         </div>
       {% endif %}
     </div>
+    <div class="component-table">
+      <table class="table" style="text-align: left;">
 
-    <table class="table">
-
-        <thead class="thead-dark">
+        <thead class="bg-skoon-dark fc-skoon-light" style="border: none;">
           <tr>
-            <th>Material</th>
-            <th>Thickness (mm)</th>
-            <th>R (Km<sup>2</sup>/W)</th>
+            <th style="width: 50%;">Material</th>
+            <th style="width: 25%;">Depth (mm)</th>
+            <th style="width: 25%;">R (Km<sup>2</sup>/W)</th>
           </tr>
         </thead>
-
-        <tbody>
-          {% for component in components %}
-            <tr>
-              <td>
-                {{ component.material.name }}
-              </td>
-              <td class="align-middle">
-                {{ component.thickness }}
-              </td>
-              <td>{{ component.displayR }}</td>
-            </tr>
-          {% endfor %}
-        </tbody>
+        
+          <tbody>
+            {% for component in components %}
+              <tr>
+                <td>
+                  {{ component.material.name }}
+                </td>
+                <td class="align-middle">
+                  {{ component.thickness }}
+                </td>
+                <td>{{ component.displayR }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
 
       </table>
-      <div>
-        <h3>{{ uVal }}</h3>
-        <h3>U Value</h3>
-      </div>
-      <div>
-        <h3>{{ insulation }}</h3>
-        <h3>Additional Insulation Requirement</h3>
-      </div>
+    
+    </div>
+
+
+
+
+
+    <div class="calculations-div">
       {% if components %}
         <div>
-          <form method="POST">
-            {% csrf_token %}
-            {% render_field insulator_form.calculate_insulation %}
-            {% render_field insulator_form.target_u id="target_u" class="form-control" %}
-            <input type="submit" value="Calculate Additional Insulation" class="btn btn-success" name="saveButton">
-          </form>
+          <p>U</p>
+          <p>{{ uVal }}</p>
+        </div>
+        {% if insulation %}  
+          <div>
+            <p>Additional Insulation Requirement</p>
+            <p>{{ insulation }}mm</p>
+          </div>
+        {% else %}
+          <div>
+            <p>No Insulation Requirements Calculated</p>
+          </div>
+        {% endif %}
+        <form method="POST" class="insulation">
+          {% csrf_token %}
+          {% render_field insulator_form.calculate_insulation %}
+          {% render_field insulator_form.target_u id="target_u" class="insulation-input" %}
+          <input type="submit" value="Calculate Additional Insulation" class="button-text btn btn-success insulation-submit" name="saveButton">
+        </form>
+      {% else %}
+        <div class="calcs-help">
+            <p>Add materials to recieve U values and insulation requirements.</p>
         </div>
       {% endif %}
-      
-      <form method="POST">
-        {% csrf_token %}
-        {% render_field clear_form.clear_material_view %}
-        <input type="submit" value="Clear Material View" class="btn btn-danger" name="clearButton">
-      </form>
-      
-      {% if not composites %}
+   </div>
 
-        <form method="POST">
+
+
+
+
+    
+    <form method="POST" class="clear-submit">
+      {% csrf_token %}
+      {% render_field clear_form.clear_material_view %}
+      <input type="submit" value="{% if composites %}Close{% else %}Reset{% endif %}" class="my-button my-cancel clear-button" name="clearButton">
+    </form>
+      
+    {% if components %}
+
+        <form method="POST" class="ls">
           {% csrf_token %}
           {% render_field save_form.save_composite %}
-          {% render_field save_form.name id="name" class="form-control" %}
-          <input type="submit" value="Save New Composite Material" class="btn btn-success" name="saveButton">
+          {% render_field save_form.name id="name" class="ls-input my-input" placeholder="Enter name..." %}
+          <input type="submit" value="Save As" class="my-button my-submit ls-submit" name="saveButton">
         </form>
       
-      {% endif %}
+    {% else %}
 
-        <form method="GET">
+        <form method="GET" class="ls">
           {% csrf_token %}
           {% render_field load_form.load_composite %}
-          {% render_field load_form.composite id="load" class="form-control" %}
-          <input type="submit" value="Load Composite Material" class="btn btn-success" name="loadButton">
+          {% render_field load_form.composite id="load" class="ls-input my-input" %}
+          <input type="submit" value="Load" class="my-button my-submit ls-submit" name="loadButton">
         </form>
-
+        
+    {% endif %}
 
 
       

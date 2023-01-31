@@ -12,10 +12,10 @@
     --fw-skoon-sub: 400;
     --fw-skoon-body: 300;
 
-    --fs-h1: 10rem;
+    --fs-h1: 6rem;
     --fs-h2: 4rem;
     --fs-h3: 4rem;
-    --fs-h4: 2rem;
+    --fs-h4: 3rem;
 
     --fs-pl: 2rem;
     --fs-p: 1.6rem;
@@ -27,6 +27,7 @@
 
 html, body {
     height: 100%;
+    width: 100%;
     margin: 0px;
 }
 
@@ -56,12 +57,19 @@ h3 {
     font-size: var(--fs-h3);
 }
 
-h4, th {
+h4 {
     font-size: var(--fs-h4);
 }
 
+th {
+    font-size: var(--fs-pl);
+}
 td, p, button, a, li {
-    font-size: var(--fs-p);
+    font-size: var(--fs-pl);
+}
+
+h1, h2, h3, h4, p, a {
+    color: #041c00;
 }
 
 .bg-skoon-light {
@@ -79,6 +87,31 @@ td, p, button, a, li {
 
 .fc-skoon-dark {
     color: var(--bs-skoon-dark);
+}
+
+.my-button {
+    background-color: var(--bs-skoon-light);
+    border-radius: 2rem;
+    font-family: var(--ff-skoon-body);
+    font-size: 2rem;
+}
+
+.my-submit {
+    color: #126f02;
+    border: 2px solid #126f02;
+}
+
+.my-cancel {
+    color: rgb(135, 3, 3);
+    border: 2px solid rgb(135, 3, 3);
+}
+
+.my-input {
+    background-color: var(--bs-skoon-light);
+    border: 2px solid var(--bs-skoon-dark);
+    border-radius: 2rem;
+    padding-inline: 2rem;
+    font-size: 2rem;
 }
 
 
@@ -163,6 +196,7 @@ nav {
     background-color: #041c00;
     position: fixed;
     bottom: 0;
+    z-index: 3;
 }
 
 .my-nav-container {
@@ -198,3 +232,145 @@ nav {
 .my-navlinks .logout {
     margin-left: 4rem;
 }
+
+/* main container */
+
+.my-main-container {
+    width: 92%;
+    max-width: 55rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 0rem 2rem;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "header header header header"
+    "ls ls ls clear-submit"
+    "header2 header2 header2 header2"
+    "display-wall display-wall display-wall display-wall"
+    "component-table component-table component-table component-table"
+    "calculations-div calculations-div calculations-div calculations-div"
+    "component-form component-form component-form component-form";
+    margin-inline: auto;
+    justify-content: center;
+    text-align: center;
+}
+
+/* calculator grid */
+
+.page-heading {
+    grid-area: header;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+.ls {
+    grid-area: ls;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    grid-template-areas: "ls-input ls-input ls-submit";
+    margin-bottom: 2rem;
+    height: 5rem;
+}
+
+.ls-input {
+    grid-area: ls-input;
+    height: 100%;
+}
+
+.ls-submit {
+    grid-area: ls-submit;
+}
+
+.clear-button {
+    height: 100%;
+    width: 100%;
+}
+
+.header2 {
+    grid-area: header2;
+    margin-bottom: 1rem;
+}
+
+.display-wall {
+    grid-area: display-wall;
+    border: 2px solid var(--bs-skoon-dark);
+    border-radius: 3rem;
+    width: 90%;
+    margin-inline: auto;
+}
+
+.component-table {
+    grid-area: component-table;
+    margin-top: 2rem;
+    border-bottom: 2px solid var(--bs-skoon-dark);
+    height: 24rem;
+    overflow: scroll;
+    width: 100%;
+}
+
+.calculations-div {
+    grid-area: calculations-div;
+    height:20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.component-form {
+    grid-area: component-form;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 0rem 2rem;
+    grid-template-areas: 
+        "material-label material-label thickness-label ."
+        "material-input material-input thickness-input component-submit";
+       
+}
+
+.material-label, .thickness-label {
+    font-size: 2rem;
+    font-family: var(--ff-skoon-body);
+}
+
+.material-label {
+    grid-area: material-label;
+}
+
+.thickness-label {
+    grid-area: thickness-label;
+}
+
+.material-input {
+    grid-area: material-input;
+}
+
+.thickness-input {
+    grid-area: thickness-input;
+}
+
+.component-submit {
+    grid-area: component-submit;
+}
+
+.insulation {
+    grid-area: insulation;
+}
+
+.clear-submit {
+    grid-area: clear-submit;
+    margin-bottom: 2rem;
+}
+
+.button-text {
+    font-size: 2rem;
+    font-family: var(--ff-skoon-body);
+    font-weight: 300;
+}
+
+.calcs-help p {
+    font-size: 3rem;
+}
+
+
