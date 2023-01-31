@@ -9,13 +9,64 @@
     --ff-skoon-sub:  "Roboto", sans-serif;
     --ff-skoon-body: 'Open Sans', sans-serif;
 
-    --fw-skoon-sub: 500;
+    --fw-skoon-sub: 400;
     --fw-skoon-body: 300;
 
+    --fs-h1: 10rem;
+    --fs-h2: 4rem;
+    --fs-h3: 4rem;
+    --fs-h4: 2rem;
+
+    --fs-pl: 2rem;
+    --fs-p: 1.6rem;
+    --fs-ps: 1.2rem
+
+}
+
+/* set basics */
+
+html, body {
+    height: 100%;
+    margin: 0px;
+}
+
+h1, h2 {
+    font-family: var(--ff-skoon-serif);
+}
+
+h3, h4, th {
+    font-family: var(--ff-skoon-sub);
+    font-weight: var(--fw-skoon-sub);
+}
+
+p, td, button, a, li {
+    font-family: var(--ff-skoon-body);
+    font-weight: var(--fw-skoon-body);
+}
+
+h1 {
+    font-size: var(--fs-h1);
+}
+
+h2 {
+    font-size: var(--fs-h2);
+}
+
+h3 {
+    font-size: var(--fs-h3);
+}
+
+h4, th {
+    font-size: var(--fs-h4);
+}
+
+td, p, button, a, li {
+    font-size: var(--fs-p);
 }
 
 .bg-skoon-light {
     background-color: var(--bs-skoon-primary);
+
 }
 
 .bg-skoon-dark {
@@ -31,13 +82,119 @@
 }
 
 
-.f-skoon-heading {
-    font-family: var(--ff-skoon-serif);
-    font-size: 2.5rem;
+/* accounts */
+
+.my-accounts-container {
+    width: 100%;
+    height: 100%;
+    background-color: var(--bs-skoon-dark);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.f-skoon-sub {
-    font-family: var(--ff-skoon-sub);
-    font-size: 1.7rem;
-    font-weight: 400;
+.accounts-logo {
+    width: 432px;
+}
+
+.accounts-form {
+    font-size: 2rem;
+    font-family: var(--ff-skoon-body);
+    margin-top: 5rem;
+}
+
+.account-field {
+   display: block;
+   margin: auto;
+   width: 70%;
+   border-radius: 0.5rem;
+   padding: 0.6rem 2rem;
+   margin-bottom: 0.5rem
+}
+
+.newto {
+    font-size: 1.4rem;
+    margin-top: 2rem;
+    font-family: var(--ff-skoon-body);
+    font-weight: 300;
+}
+
+.signup {
+    margin-left: 1rem;
+}
+
+.accounts-content {
+    color: var(--bs-skoon-light);
+}
+
+.login-form input {
+    margin-bottom: 2rem;
+}
+
+.login-button {
+    margin-top: 1rem;
+}
+
+.accounts-button {
+    font-size: 3rem;
+    padding-inline: 2rem;
+    margin-block: 1rem;
+}
+.accounts-inner {
+    width: 90%;
+    margin: auto;
+}
+
+.accounts-error, .accounts-help {
+    font-family: var(--ff-skoon-body);
+    font-weight: 300;
+    font-size: 1.6rem;
+}
+
+
+
+
+/* nav */
+
+nav {
+    width: 100%;
+    height: 12rem;
+    background-color: #041c00;
+    position: fixed;
+    bottom: 0;
+}
+
+.my-nav-container {
+    margin-inline: auto;
+    height: 100%;
+    width: 90%;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.my-nav-container .logo {
+    position: relative;
+    bottom: 5px;
+}
+
+.my-navlinks {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.my-navlinks li a span {
+    position: relative;
+    top: 10px;
+    margin-left: 4rem;
+    font-size: 4rem;
+    color: var(--bs-skoon-light);
+}
+
+.my-navlinks .logout {
+    margin-left: 4rem;
 }
