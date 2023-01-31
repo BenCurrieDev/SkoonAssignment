@@ -18,22 +18,22 @@
 
         <nav class="">
             <div class="my-nav-container">
-              <a class="logo" href="{% url 'home' %}" ><img src="{% static 'img/logo.png' %}"></a>
+              <a class="logo" href="{% url 'database' %}" ><img src="{% static 'img/logo.png' %}"></a>
               <ul class="my-navlinks">
-                  <li class="">
-                      <a class="" href={% url 'home' %}>
-                          <span class="material-symbols-rounded">
-                          database
-                          </span>
-                      </a>
-                  </li>
-                  <li class="">
-                      <a class="" href={% url 'calculator' %}>
+                    <li class="">
+                        <a class="" href={% url 'home' %}>
                         <span class="material-symbols-rounded">
                         calculate
                         </span>
-                      </a>
-                  </li>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a class="" href={% url 'database' %}>
+                            <span class="material-symbols-rounded">
+                            database
+                            </span>
+                        </a>
+                    </li>
                   {% if user.is_authenticated %}
                       <li class="logout">
                           <a class="" href="{% url 'logout' %}" id="userMenu" >
@@ -52,11 +52,9 @@
             </div>
           </nav>
     
-        <div class="container pt-4">
-            <div class="mx-4">
-                {% block content %}
-                {% endblock %}
-            </div>
+        <div class="my-main-container">
+            {% block content %}
+            {% endblock %}
         </div>
     {% endblock body %}
     
