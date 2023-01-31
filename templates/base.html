@@ -4,9 +4,12 @@
     <meta charset="utf-8">
     <title>{% block title %}Skoon u-calc{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    {% block stylesheet %}{% endblock %}
+    <link rel="stylesheet" href="{% static 'css/skoon.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Playfair+Display&family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
   </head>
-  <body>
+  <body class="bg-skoon-light">
     {% block body %}
 
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
