@@ -1,0 +1,43 @@
+:root {
+    --bs-skoon-primary: #fbf3e8;
+    --bs-skoon-secondary: #ede6dc;
+    --bs-skoon-light: #fbf3e8;
+    --bs-skoon-dark: #041c00;
+    --bs-skoon-body-color: var(--bs-dark);
+
+    --ff-skoon-serif: 'Playfair Display', serif;
+    --ff-skoon-sub:  "Roboto", sans-serif;
+    --ff-skoon-body: 'Open Sans', sans-serif;
+
+    --fw-skoon-sub: 500;
+    --fw-skoon-body: 300;
+
+}
+
+.bg-skoon-light {
+    background-color: var(--bs-skoon-primary);
+}
+
+.bg-skoon-dark {
+    background-color: var(--bs-skoon-dark);
+}
+
+.fc-skoon-light {
+    color: var(--bs-skoon-light);
+}
+
+.fc-skoon-dark {
+    color: var(--bs-skoon-dark);
+}
+
+
+.f-skoon-heading {
+    font-family: var(--ff-skoon-serif);
+    font-size: 2.5rem;
+}
+
+.f-skoon-sub {
+    font-family: var(--ff-skoon-sub);
+    font-size: 1.7rem;
+    font-weight: 400;
+}
