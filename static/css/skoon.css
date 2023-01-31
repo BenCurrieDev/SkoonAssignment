@@ -153,8 +153,9 @@ h1, h2, h3, h4, p, a {
     font-weight: 300;
 }
 
-.signup {
+a.signup {
     margin-left: 1rem;
+    color: cornflowerblue;
 }
 
 .accounts-content {
