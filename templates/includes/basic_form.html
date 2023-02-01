@@ -10,15 +10,17 @@
 
 {% for field in form %}
   <div>
-    {{ field.label_tag }}
-    {% render_field field class="accounts-input" %}
+    <div class="input-accounts-div">
+      {{ field.label_tag }}
+      {% render_field field class="accounts-input" %}
+    </div>
     {% for error in field.errors %}
-      <div>
+      <p class="fxs fc-green left">
         {{ error }}
-      </div>
+      </p>
     {% endfor %}
     {% if field.help_text %}
-      <p>
+      <p class="fxs fc-green left">
         {{ field.help_text }}
       </p>
     {% endif %}

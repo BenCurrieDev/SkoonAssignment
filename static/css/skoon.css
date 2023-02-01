@@ -28,6 +28,7 @@
     --fs-pl: 1.2rem;
     --fs-p: 1rem;
     --fs-ps: 0.8rem;
+    --fs-xs: 0.6rem;
 
     --sp: 2rem; /* SPACE CONTROL */
 
@@ -57,7 +58,7 @@ h3, h4, th {
     font-weight: var(--fw-n);
 }
 
-p, td, label {
+p, td, label, li {
     font-family: var(--ff-sans-p);
     font-weight: var(--fw-l);
     font-size: var(--fs-p);
@@ -83,7 +84,7 @@ th {
     font-size: var(--fs-pl);
 }
 
-h1, h2, h3, h4, p, td, th, label, a, button {
+h1, h2, h3, h4, p, td, th, label, a, button , li{
     color: #041c00;
 }
 
@@ -104,6 +105,7 @@ input {
     font-family: var(--ff-sans-p);
     font-weight: var(--fw-l);
     font-size: var(--fs-p);
+    color: var(--clr-primary-lt);
     padding: calc(0.8 * var(--fs-p)) var(--fs-p);
     background-color: var(--clr-white);
     border: none;
@@ -136,6 +138,10 @@ input {
         color: var(--clr-primary-dk);
     }
 
+    .fc-green {
+        color: var(--clr-green) !important;
+    }
+
     .fc-cream {
         color: var(--clr-cream);
     }
@@ -164,10 +170,19 @@ input {
         font-size: var(--fs-ps);
     }
 
+    .fxs {
+        font-size: var(--fs-xs);
+    }
+
     /* layout */
     .center {
         width: 100%;
         text-align: center;
+    }
+
+    .left {
+        width: 100%;
+        text-align: left;
     }
 
 /* accounts */
@@ -180,8 +195,15 @@ input {
     color: var(--clr-white);
 }
 
-.accounts-body label, .accounts-body p {
+.accounts-body label, .accounts-body p, .accounts-body li {
     color: var(--clr-white);
+}
+
+.accounts-body li {
+    font-size: var(--fs-xs);
+    color: var(--clr-green);
+    text-align: left;
+    margin-bottom: calc(0.1 * var(--sp));
 }
 
 .accounts-container {
@@ -205,8 +227,12 @@ input {
 .accounts-input {
     display: block;
     width: calc(100% - 2 * var(--fs-p));
+    margin-top: calc(0.2 * var(--sp));
+    margin-bottom: calc(0.2 * var(--sp));
+}
+
+.input-accounts-div {
     margin-top: calc(0.4 * var(--sp));
-    margin-bottom: calc(0.5 * var(--sp));
 }
 
 .accounts-form {
@@ -215,8 +241,10 @@ input {
 }
 
 .accounts-submit {
-    margin-top: calc(0.2 *var(--sp));
+    margin-top: calc(0.5 *var(--sp));
     margin-bottom: var(--sp);
 }
+
+
     /* login */
 
