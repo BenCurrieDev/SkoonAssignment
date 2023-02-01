@@ -41,53 +41,57 @@
 
 
 
-
-    <div class="material-view-container">
+    <div class="display-section">
+      <div class="material-view-container">
       
-      <h4>{% if composites %}{{ active_composite.name }}{% else %}Materials{% endif %}</h4>
-
-      <div class="material-view">
-        {% if components %}
-          <div class="composite-block">
-            {% for component in components %}
-              <div class="material-block" style="width:{{ component.thickness }}px; background-color:{{ component.material.color }}"></div>
-            {% endfor %}
-          </div>
-        {% endif %}
+        <h4 class="material-heading">{% if composites %}{{ active_composite.name }}{% else %}Add Materials To View{% endif %}</h4>
+  
+        <div class="material-view">
+          {% if components %}
+            <div class="composite-block">
+              {% for component in components %}
+                <div class="material-block" style="width:{{ component.thickness }}px; background-color:{{ component.material.color }}"></div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+  
       </div>
 
+      <div class="materials-table-container">
+        <table>
+  
+          <thead>
+            <tr>
+              <th>Material</th>
+              <th>Depth (mm)</th>
+              <th>R (Km<sup>2</sup>/W)</th>
+            </tr>
+          </thead>
+          
+            <tbody>
+              {% for component in components %}
+                <tr>
+                  <td>
+                    {{ component.material.name }}
+                  </td>
+                  <td>
+                    {{ component.thickness }}
+                  </td>
+                  <td>{{ component.displayR }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+  
+        </table>
+      </div>
+      
     </div>
     
 
 
 
-    <div class="materials-table-container">
-      <table>
-
-        <thead>
-          <tr>
-            <th>Material</th>
-            <th>Depth (mm)</th>
-            <th>R (Km<sup>2</sup>/W)</th>
-          </tr>
-        </thead>
-        
-          <tbody>
-            {% for component in components %}
-              <tr>
-                <td>
-                  {{ component.material.name }}
-                </td>
-                <td>
-                  {{ component.thickness }}
-                </td>
-                <td>{{ component.displayR }}</td>
-              </tr>
-            {% endfor %}
-          </tbody>
-
-      </table>
-    </div>
+    
     
 
 

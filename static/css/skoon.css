@@ -363,70 +363,94 @@
 
 /* Calculator */
         
-        .load-save-clear {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            margin-block: 1vh;
-        }
+    .load-save-clear {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-block: 1vh;
+    }
 
-        .load-save-form {
-            display: flex;
-            justify-content: end;
-            width: 100%;
-        }
+    .load-save-form {
+        display: flex;
+        justify-content: end;
+        width: 100%;
+    }
 
-        .load-save-field {
-            border: 1px solid var(--clr-primary-lt);
-            border-radius: 0.2em;
-            padding: 0.3em 0;
-            padding-inline: calc(0.2 * var(--sp));
-            width: 100%;
-            max-width: 20em;
-        }
+    .load-save-field {
+        border: 1px solid var(--clr-primary-lt);
+        border-radius: 0.2rem;
+        padding: 0.3em 0;
+        padding-inline: calc(0.2 * var(--sp));
+        width: 100%;
+        max-width: 20em;
+    }
 
-        input.submit-button {
-            border: 1px solid var(--clr-green);
-            border-radius: 0.2em;
-            color: var(--clr-green);
-            padding: 0.3em 0;
-            padding-inline: 0.5em;
-            margin-left: 0.5em;
-        }
+    input.submit-button {
+        border: 1px solid var(--clr-green);
+        border-radius: 0.2rem;
+        color: var(--clr-green);
+        padding: 0.3em 0;
+        padding-inline: 0.5em;
+        margin-left: 0.5em;
+    }
 
-        .clear-form {
-            display: flex;
-            justify-content: end;
-        }
+    .clear-form {
+        display: flex;
+        justify-content: end;
+    }
 
-        input.clear-button {
-            border: 1px solid var(--clr-red);
-            border-radius: 0.2em;
-            color: var(--clr-red);
-            padding: 0.3em 0;
-            padding-inline: 0.5em;
-            margin-left: 0.5em;
-        }
+    input.clear-button {
+        border: 1px solid var(--clr-red);
+        border-radius: 0.2em;
+        color: var(--clr-red);
+        padding: 0.3rem 0;
+        padding-inline: 0.5em;
+        margin-left: 0.5em;
+    }
 
+    .display-section {
+        min-height: 6rem;
+        max-height: 15rem;
+    }
+    .material-view-container {
+        background-color: var(--clr-secondary);
+        border-radius: 0.2rem;
+        position: relative;
+        height: 100%;
+        overflow: hidden;
 
-        .material-view {
-            height: 10rem;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-        }
+    }
 
-        .composite-block {
-            height: 100%;
-            border-right: 1px solid black;
-            border-left: 1px solid black;
-            display: flex;
-        }
+    .material-heading {
+        position: absolute;
+        margin-top: 1em;
+        color: var(--clr-white);
+        font-family: var(--ff-sans-p);
+        font-weight: var(--fw-l);
+        background-color: rgba(0, 0, 0, 0.5);
+        padding-left: 0.4em;
+        padding-top: 0.4em;
+        padding-bottom: 0.4em;
+        width: 100%;
 
-        .material-block {
-            height: 100%;
-        }
+    }
 
-        
+    .material-view {
+        height: 100%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .composite-block {
+        height: 100%;
+        display: flex;
+    }
+
+    .material-block {
+        height: 100%;
+    }
+
+    
 
 
