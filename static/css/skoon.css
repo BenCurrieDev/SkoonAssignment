@@ -96,6 +96,10 @@ button {
     border: none;
 }
 
+    button:hover {
+        cursor: pointer;
+    }
+
 input {
     font-family: var(--ff-sans-p);
     font-weight: var(--fw-l);
@@ -108,6 +112,11 @@ input {
     input:focus {
         outline: none;
     }
+
+    input:hover {
+        cursor:text;
+    }
+
 /* COMMON REUSABLE CLASSES */
 
     /* colors */
@@ -177,7 +186,7 @@ input {
 
 .accounts-container {
     width: calc(0.8 * var(--container-width));
-    max-width: calc(0.8 * var(--container-max-width));
+    max-width: calc(0.5 * var(--container-max-width));
     display: flex;
     flex-direction: column;
     justify-content: center;
