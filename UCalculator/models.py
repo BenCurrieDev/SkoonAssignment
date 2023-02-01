@@ -41,7 +41,7 @@ class Component(models.Model):
         return ((self.thickness * 0.001) / self.material.thermal_conductivity)
     
     def displayR(self):
-        return round((self.thickness * 0.001) / self.material.thermal_conductivity, 1)
+        return round((self.thickness * 0.001) / self.material.thermal_conductivity, 2)
 
     def __str__(self):
         return self.material.name + ' (' + str(self.thickness) + 'mm)'
