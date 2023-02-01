@@ -227,12 +227,12 @@ input {
 .accounts-input {
     display: block;
     width: calc(100% - 2 * var(--fs-p));
-    margin-top: calc(0.2 * var(--sp));
+    margin-top: calc(0.15 * var(--sp));
     margin-bottom: calc(0.2 * var(--sp));
 }
 
 .input-accounts-div {
-    margin-top: calc(0.4 * var(--sp));
+    margin-top: calc(0.2 * var(--sp));
 }
 
 .accounts-form {
