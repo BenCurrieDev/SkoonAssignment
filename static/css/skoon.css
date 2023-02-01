@@ -21,7 +21,7 @@
     --fw-b: 700;
 
     --fs-h1: 2.7rem;
-    --fs-h2: 1.6rem;
+    --fs-h2: 1.8rem;
     --fs-h3: 1.4rem;
     --fs-h4: 1.2rem;
 
@@ -342,10 +342,18 @@
         max-width: var(--container-max-width);
         height: var(--page-height);
         max-height: var(--page-height);
-        border: 2px solid red;
+       
         margin: auto;
         display: flex;
         flex-direction: column;
+    }
+
+    .page-heading {
+        text-align: right;
+        font-size: var(--fs-h2);
+        margin-top: calc(var(--fs-h2) / 4);
+        padding-bottom: calc(var(--fs-h2) / 10);;
+        border-bottom: 2px solid var(--clr-primary-dk);
     }
 
         @media screen and (min-width: 1000px) {
@@ -356,6 +364,9 @@
         }
 
 /* Calculator */
+        
+    
+
 
         .material-view {
             height: 10rem;
