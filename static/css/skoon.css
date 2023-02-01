@@ -48,17 +48,19 @@ html, body {
 }
 
 h1, h2 {
-    font-family: var(--ff-skoon-serif);
+    font-family: var(--ff-serif);
+    font-weight: var(--fw-n);
 }
 
 h3, h4, th {
-    font-family: var(--ff-skoon-sub);
-    font-weight: var(--fw-skoon-sub);
+    font-family: var(--ff-sans-h);
+    font-weight: var(--fw-n);
 }
 
-p, td, button, a, li {
-    font-family: var(--ff-skoon-body);
-    font-weight: var(--fw-skoon-body);
+p, td {
+    font-family: var(--ff-sans-p);
+    font-weight: var(--fw-l);
+    font-size: var(--fs-pl);
 }
 
 h1 {
@@ -80,312 +82,55 @@ h4 {
 th {
     font-size: var(--fs-pl);
 }
-td, p, button, a, li {
-    font-size: var(--fs-pl);
-}
 
-h1, h2, h3, h4, p, a {
+h1, h2, h3, h4, p, td, th {
     color: #041c00;
 }
 
-.bg-skoon-light {
-    background-color: var(--bs-skoon-primary);
+/* COMMON REUSABLE CLASSES */
 
-}
+    /* colors */
+    .bg-light {
+        background-color: var(--clr-white);
+    }
 
-.bg-skoon-dark {
-    background-color: var(--bs-skoon-dark);
-}
+    .bg-dark {
+        background-color: var(--clr-primary-dk);
+    }
 
-.fc-skoon-light {
-    color: var(--bs-skoon-light);
-}
+    .fc-white {
+        color: var(--clr-white);
+    }
 
-.fc-skoon-dark {
-    color: var(--bs-skoon-dark);
-}
+    .fc-dark {
+        color: var(--clr-primary-dk);
+    }
 
-.my-button {
-    background-color: var(--bs-skoon-light);
-    border-radius: 1rem;
-    font-family: var(--ff-skoon-body);
-    font-size: 1rem;
-}
+    .fc-cream {
+        color: var(--clr-cream);
+    }
 
-.my-submit {
-    color: #126f02;
-    border: 1px solid #126f02;
-}
+    .my-button {
+        background-color: var(--bs-skoon-light);
+        border-radius: 1rem;
+        font-family: var(--ff-skoon-body);
+        font-size: 1rem;
+    }
 
-.my-cancel {
-    color: rgb(135, 3, 3);
-    border: 1px solid rgb(135, 3, 3);
-}
+    /* components */
+    .button {
+        font-family: var(--ff-sans-h);
+        font-weight: var(--fw-l);
+        font-size: var(--fs-pl);
+        padding: calc(0.5 * var(--fs-pl)) calc(2 * var(--fs-pl));
+    }
 
-.my-input {
-    background-color: var(--bs-skoon-light);
-    border: 1px solid var(--bs-skoon-dark);
-    border-radius: 1rem;
-    padding-inline: 1rem;
-    font-size: var(--fs-p);
-}
-
+    .input {
+        padding: var(--fs-p);
+    }
 
 /* accounts */
 
-.my-accounts-container {
-    width: 100%;
-    height: 100%;
-    background-color: var(--bs-skoon-dark);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+    /* login */
 
-.accounts-logo {
-    width: 216px;
-}
-
-.accounts-form {
-    font-size: var(--fs-p);
-    font-family: var(--ff-skoon-body);
-    margin-top: 2rem;
-}
-
-.account-field {
-   display: block;
-   margin: auto;
-   width: 70%;
-   border-radius: 0.5rem;
-   padding: 0.6rem 1rem;
-   margin-bottom: 0.5rem
-}
-
-.newto {
-    font-size: 1.4rem;
-    margin-top: 2rem;
-    font-family: var(--ff-skoon-body);
-    font-weight: 300;
-}
-
-a.signup {
-    margin-left: 1rem;
-    color: cornflowerblue;
-}
-
-.accounts-content {
-    color: var(--bs-skoon-light);
-}
-
-.login-form input {
-    margin-bottom: 2rem;
-}
-
-.login-button {
-    margin-top: 1rem;
-}
-
-.accounts-button {
-    font-size: 3rem;
-    padding-inline: 2rem;
-    margin-block: 1rem;
-}
-.accounts-inner {
-    width: 90%;
-    margin: auto;
-}
-
-.accounts-error, .accounts-help {
-    font-family: var(--ff-skoon-body);
-    font-weight: 300;
-    font-size: 1.6rem;
-}
-
-
-
-
-/* nav */
-
-nav {
-    width: 100%;
-    height: 4rem;
-    background-color: #041c00;
-    position: fixed;
-    bottom: 0;
-    z-index: 3;
-}
-
-.my-nav-container {
-    margin-inline: auto;
-    height: 100%;
-    width: 90%;
-    display: flex;
-    align-content: center;
-    align-items: center;
-    justify-content: space-between;
-    border: 2px solid red;
-}
-
-.my-nav-container .logo img{
-    width: 108px;
-}
-
-.my-navlinks {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    border: 2px solid red
-}
-
-.my-navlinks li a span {
-    margin-left: 1rem;
-    font-size: 2rem;
-    color: var(--bs-skoon-light);
-}
-
-.my-navlinks .logout {
-    margin-left: 2rem;
-}
-
-/* main container */
-
-.my-main-container {
-    width: 92%;
-    max-width: 600px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 0rem 1rem;
-    grid-template-rows: auto;
-    grid-template-areas:
-    "header header header header"
-    "ls ls ls clear-submit"
-    "header2 header2 header2 header2"
-    "display-wall display-wall display-wall display-wall"
-    "component-table component-table component-table component-table"
-    "calculations-div calculations-div calculations-div calculations-div"
-    "component-form component-form component-form component-form";
-    margin-inline: auto;
-    justify-content: center;
-    text-align: center;
-}
-
-/* calculator grid */
-
-.page-heading {
-    grid-area: header;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-}
-
-.ls {
-    grid-area: ls;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1rem;
-    grid-template-areas: "ls-input ls-input ls-submit";
-    margin-bottom: 1rem;
-    height: 2rem;
-}
-
-.ls-input {
-    grid-area: ls-input;
-    height: 100%;
-}
-
-.ls-submit {
-    grid-area: ls-submit;
-}
-
-.clear-button {
-    height: 100%;
-    width: 100%;
-}
-
-.header2 {
-    grid-area: header2;
-    margin-bottom: 1rem;
-}
-
-.display-wall {
-    grid-area: display-wall;
-    border: 1px solid var(--bs-skoon-dark);
-    border-radius: 2rem;
-    width: 90%;
-    margin-inline: auto;
-}
-
-.component-table {
-    grid-area: component-table;
-    margin-top: 1rem;
-    border-bottom: 1px solid var(--bs-skoon-dark);
-    height: 12rem;
-    overflow: scroll;
-    width: 100%;
-}
-
-.calculations-div {
-    grid-area: calculations-div;
-    height: 10rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.component-form {
-    grid-area: component-form;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 0rem 1rem;
-    grid-template-areas: 
-        "material-label material-label thickness-label ."
-        "material-input material-input thickness-input component-submit";
-       
-}
-
-.material-label, .thickness-label {
-    font-size: 1rem;
-    font-family: var(--ff-skoon-body);
-}
-
-.material-label {
-    grid-area: material-label;
-}
-
-.thickness-label {
-    grid-area: thickness-label;
-}
-
-.material-input {
-    grid-area: material-input;
-}
-
-.thickness-input {
-    grid-area: thickness-input;
-}
-
-.component-submit {
-    grid-area: component-submit;
-}
-
-.insulation {
-    grid-area: insulation;
-}
-
-.clear-submit {
-    grid-area: clear-submit;
-    margin-bottom:12rem;
-}
-
-.button-text {
-    font-size: 1rem;
-    font-family: var(--ff-skoon-body);
-    font-weight: 300;
-}
-
-.calcs-help p {
-    font-size: 1rem;
-}
-
-
+    

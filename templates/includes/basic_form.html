@@ -1,24 +1,24 @@
 {% load form_tags widget_tweaks %}
 
 {% if form.non_field_errors %}
-  <div class="" role="alert">
+  <div>
     {% for error in form.non_field_errors %}
-      <p{% if forloop.last %} class="mb-0"{% endif %}>{{ error }}</p>
+      <p{% if forloop.last %}class="mb-0"{% endif %}>{{ error }}</p>
     {% endfor %}
   </div>
 {% endif %}
 
 {% for field in form %}
-  <div class="accounts-fields">
+  <div>
     {{ field.label_tag }}
-    {% render_field field class="account-field" %}
+    {% render_field field %}
     {% for error in field.errors %}
-      <div class="accounts-error">
+      <div>
         {{ error }}
       </div>
     {% endfor %}
     {% if field.help_text %}
-      <p class="accounts-help">
+      <p>
         {{ field.help_text }}
       </p>
     {% endif %}
