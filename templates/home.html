@@ -6,41 +6,41 @@
     
     <h1 class="page-heading">skoonUlator</h1>
     
-    <form method="POST" class="component-form">
+    <form method="POST">
 
         {% csrf_token %}
         {% render_field component_form.add_material %}
-        <label for="material" class="material-label">Select Material</label>
-        {% render_field component_form.material id="material" class="material-input my-input" %}
+        <label for="material">Select Material</label>
+        {% render_field component_form.material id="material" %}
            
-        <label for="thickness" class="thickness-label">Depth (mm)</label>
-        {% render_field component_form.thickness id="thickness" class="thickness-input" placeholder="10" style="text-align:right;" %}
+        <label for="thickness">Depth (mm)</label>
+        {% render_field component_form.thickness id="thickness" %}
             
 
-        <button type="submit" class="my-button my-submit component-submit" name="addMaterialButton">Add Material</button>
+        <button type="submit" name="addMaterialButton">Add Material</button>
         
     </form>
 
 
-    <h4 class="header2" style="height: 3rem">{% if composites %}{{ active_composite.name }}{% else %}Materials{% endif %}</h4>
+    <h4>{% if composites %}{{ active_composite.name }}{% else %}Materials{% endif %}</h4>
 
-    <div class="display-wall" style="display:flex; justify-content:center; height:20rem; margin-block: 1rem;">
+    <div class="material-view">
       {% if components %}
-        <div style="height:100%; border-right:2px solid black; border-left:2px solid black; width: auto; display: flex;">
+        <div class="composite-block">
           {% for component in components %}
-            <div style="height:100%; width:{{ component.thickness }}px; background-color:{{ component.material.color }}"></div>
+            <div class="material-block" style="width:{{ component.thickness }}px; background-color:{{ component.material.color }}"></div>
           {% endfor %}
         </div>
       {% endif %}
     </div>
-    <div class="component-table">
-      <table class="table" style="text-align: left;">
+    <div>
+      <table>
 
-        <thead class="bg-skoon-dark fc-skoon-light" style="border: none;">
+        <thead>
           <tr>
-            <th style="width: 50%;">Material</th>
-            <th style="width: 25%;">Depth (mm)</th>
-            <th style="width: 25%;">R (Km<sup>2</sup>/W)</th>
+            <th>Material</th>
+            <th>Depth (mm)</th>
+            <th>R (Km<sup>2</sup>/W)</th>
           </tr>
         </thead>
         
@@ -50,7 +50,7 @@
                 <td>
                   {{ component.material.name }}
                 </td>
-                <td class="align-middle">
+                <td>
                   {{ component.thickness }}
                 </td>
                 <td>{{ component.displayR }}</td>

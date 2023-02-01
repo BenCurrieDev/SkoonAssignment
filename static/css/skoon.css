@@ -35,8 +35,8 @@
     --sp: 2rem; /* SPACE CONTROL */
 
     --nav-height: calc(1.9 * var(--sp));
-    --page-height: calc(100vh - var(var(--nav-height)));
-    --container-width: 90%;
+    --page-height: calc(100vh - var(--nav-height));
+    --container-width: 94%;
     --container-max-width: 1000px;
 
     --shadow: -0.1em 0.1em 0.1em var(--clr-drimary-dk);
@@ -104,7 +104,7 @@
             cursor: pointer;
         }
 
-    input {
+    input, select {
         font-family: var(--ff-sans-p);
         font-weight: var(--fw-l);
         font-size: var(--fs-p);
@@ -304,38 +304,76 @@
        font-weight: var(--fw-n);
     }
 
-    @media screen and (min-width: 1000px) {
+        @media screen and (min-width: 1000px) {
 
-        .navbar {
-            top: 0;
-        }
-        .navbar .mobile {
-            display: none;
-        }
-        .navbar .desktop {
-            display: flex;
+            .navbar {
+                top: 0;
+            }
+            .navbar .mobile {
+                display: none;
+            }
+            .navbar .desktop {
+                display: flex;
+            }
+
+            li.navlink {
+                margin-left: calc(0.5 * var(--sp));
+            }
+
+            li.logout {
+                margin-left: calc(1.5 * var(--sp));
+            }
+
         }
 
-        li.navlink {
-            margin-left: calc(0.5 * var(--sp));
-        }
 
-        li.logout {
-            margin-left: calc(1.5 * var(--sp));
-        }
 
+
+
+
+
+/* PAGE LAYOUT */
+
+    body {
+        background-color: var(--clr-white);
     }
-
-
-
-
-
-
-
-/* PAGES */
-
     .main-container {
         width: var(--container-width);
         max-width: var(--container-max-width);
+        height: var(--page-height);
+        max-height: var(--page-height);
+        border: 2px solid red;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
     }
+
+        @media screen and (min-width: 1000px) {
+            .main-container {
+                position: relative;
+                top: var(--nav-height)
+            }
+        }
+
+/* Calculator */
+
+        .material-view {
+            height: 10rem;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        .composite-block {
+            height: 100%;
+            border-right: 1px solid black;
+            border-left: 1px solid black;
+            display: flex;
+        }
+        .material-block {
+            height: 100%;
+        }
+
+        
+
 
