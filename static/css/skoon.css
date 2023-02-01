@@ -387,7 +387,7 @@
         height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: start;
     }
 
         @media screen and (min-width: 1000px) {
@@ -449,6 +449,7 @@
         display: flex;
         flex-direction: column;
     }
+
     .material-view-container {
         background-color: var(--clr-secondary);
         position: relative;
@@ -516,6 +517,24 @@
 
     .col-r {
         width: 26%;
+    }
+
+    @media screen and (min-width: 1000px) {
+        .display-section {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .material-view-container {
+            width: 49.5%;
+            height: 20vh;
+        }
+
+        .materials-table-container {
+            width: 49.5%;
+            height: calc(20vh - 2px);
+            margin-block: 0;
+        }
     }
 
 
