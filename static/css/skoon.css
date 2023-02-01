@@ -1,16 +1,24 @@
 :root {
-    --bs-skoon-primary: #fbf3e8;
-    --bs-skoon-secondary: #ede6dc;
-    --bs-skoon-light: #fbf3e8;
-    --bs-skoon-dark: #041c00;
-    --bs-skoon-body-color: var(--bs-dark);
 
-    --ff-skoon-serif: 'Playfair Display', serif;
-    --ff-skoon-sub:  "Roboto", sans-serif;
-    --ff-skoon-body: 'Open Sans', sans-serif;
+    --clr-primary-lt: #4B5938;
+    --clr-primary-dk: #041C00;
+    --clr-cream: #FEEEDF;
+    --clr-secondary: #242D2A;
+    --clr-tertiary: #413638;
 
-    --fw-skoon-sub: 400;
-    --fw-skoon-body: 300;
+    --clr-white: #FBF3E8;
+    --clr-black: black;
+    --clr-red: #CB2701;
+    --clr-green: #198B52;
+
+
+    --ff-serif: 'Playfair Display', serif;
+    --ff-sans-h:  Helvetica, "Roboto", sans-serif;
+    --ff-sans-p: 'Open Sans', sans-serif;
+
+    --fw-l: 300;
+    --fw-n: 400;
+    --fw-b: 700;
 
     --fs-h1: 2rem;
     --fs-h2: 1.6rem;
@@ -19,8 +27,16 @@
 
     --fs-pl: 1.2rem;
     --fs-p: 1rem;
-    --fs-ps: 0.8rem
+    --fs-ps: 0.8rem;
 
+    --sp: 2rem; /* SPACE CONTROL */
+
+    --nav-height: calc(2 * var(var(--space-control)));
+    --page-height: calc(100vh - var(var(--nav-height)));
+    --container-width: 90%;
+    --container-max-width: 1000px;
+
+    --shadow: -0.1em 0.1em 0.1em var(--clr-drimary-dk);
 }
 
 /* set basics */
