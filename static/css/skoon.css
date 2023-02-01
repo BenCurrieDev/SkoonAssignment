@@ -20,7 +20,7 @@
     --fw-n: 400;
     --fw-b: 700;
 
-    --fs-h1: 2rem;
+    --fs-h1: 2.7rem;
     --fs-h2: 1.6rem;
     --fs-h3: 1.4rem;
     --fs-h4: 1.2rem;
@@ -57,10 +57,10 @@ h3, h4, th {
     font-weight: var(--fw-n);
 }
 
-p, td {
+p, td, label {
     font-family: var(--ff-sans-p);
     font-weight: var(--fw-l);
-    font-size: var(--fs-pl);
+    font-size: var(--fs-p);
 }
 
 h1 {
@@ -83,10 +83,31 @@ th {
     font-size: var(--fs-pl);
 }
 
-h1, h2, h3, h4, p, td, th {
+h1, h2, h3, h4, p, td, th, label, a, button {
     color: #041c00;
 }
 
+button {
+    font-family: var(--ff-sans-p);
+    font-weight: var(--fw-n);
+    font-size: var(--fs-p);
+    padding: calc(0.8 * var(--fs-p)) calc(1.8 * var(--fs-p));
+    background-color: var(--clr-white);
+    border: none;
+}
+
+input {
+    font-family: var(--ff-sans-p);
+    font-weight: var(--fw-l);
+    font-size: var(--fs-p);
+    padding: calc(0.8 * var(--fs-p)) var(--fs-p);
+    background-color: var(--clr-white);
+    border: none;
+}
+
+    input:focus {
+        outline: none;
+    }
 /* COMMON REUSABLE CLASSES */
 
     /* colors */
@@ -129,12 +150,64 @@ h1, h2, h3, h4, p, td, th {
         padding: var(--fs-p);
     }
 
+    /* styles */
+    .fs {
+        font-size: var(--fs-ps);
+    }
+
+    /* layout */
+    .center {
+        width: 100%;
+        text-align: center;
+    }
+
 /* accounts */
 
 .accounts-body {
     height: 100vh;
     width: 100%;
     background-color: var(--clr-primary-dk);
+    display: flex;
+    color: var(--clr-white);
+}
+
+.accounts-body label, .accounts-body p {
+    color: var(--clr-white);
+}
+
+.accounts-container {
+    width: calc(0.8 * var(--container-width));
+    max-width: calc(0.8 * var(--container-max-width));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.accounts-header {
+    margin-bottom: var(--fs-h1);
+}
+
+.accounts-body a {
+    color: var(--clr-cream);
+}
+
+.accounts-input {
+    display: block;
+    width: calc(100% - 2 * var(--fs-p));
+    margin-top: calc(0.4 * var(--sp));
+    margin-bottom: calc(0.5 * var(--sp));
+}
+
+.accounts-form {
+    width: 100%;
+    text-align: center;
+}
+
+.accounts-submit {
+    margin-top: calc(0.2 *var(--sp));
+    margin-bottom: var(--sp);
 }
     /* login */
 

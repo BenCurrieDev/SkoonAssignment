@@ -7,21 +7,17 @@
 {% endblock %}
 
 {% block content %}
+  
+<form method="post" class="accounts-form">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ next }}">
+    {% include 'includes/basic_form.html' %}
+    <button type="submit" class="center accounts-submit">LOG IN</button>
+  </form>
 
-    <div>
-      <div>
-          <div>
-            <form method="post">
-              {% csrf_token %}
-              <input type="hidden" name="next" value="{{ next }}">
-              {% include 'includes/basic_form.html' %}
-              <button type="submit">Log in</button>
-            </form>
-          </div>
-          <div>
-            New to the skoonulator? <a href="{% url 'signup' %}">Sign up</a>
-          </div>
-      </div>
-    </div>
+  <p class="fs center">
+    New to  skoonUlator? <a href="{% url 'signup' %}">Sign up</a>
+  </p>
+
 
 {% endblock %}
