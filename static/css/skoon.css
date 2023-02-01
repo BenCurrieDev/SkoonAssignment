@@ -12,14 +12,14 @@
     --fw-skoon-sub: 400;
     --fw-skoon-body: 300;
 
-    --fs-h1: 6rem;
-    --fs-h2: 4rem;
-    --fs-h3: 4rem;
-    --fs-h4: 3rem;
+    --fs-h1: 2rem;
+    --fs-h2: 1.6rem;
+    --fs-h3: 1.4rem;
+    --fs-h4: 1.2rem;
 
-    --fs-pl: 2rem;
-    --fs-p: 1.6rem;
-    --fs-ps: 1.2rem
+    --fs-pl: 1.2rem;
+    --fs-p: 1rem;
+    --fs-ps: 0.8rem
 
 }
 
@@ -91,27 +91,27 @@ h1, h2, h3, h4, p, a {
 
 .my-button {
     background-color: var(--bs-skoon-light);
-    border-radius: 2rem;
+    border-radius: 1rem;
     font-family: var(--ff-skoon-body);
-    font-size: 2rem;
+    font-size: 1rem;
 }
 
 .my-submit {
     color: #126f02;
-    border: 2px solid #126f02;
+    border: 1px solid #126f02;
 }
 
 .my-cancel {
     color: rgb(135, 3, 3);
-    border: 2px solid rgb(135, 3, 3);
+    border: 1px solid rgb(135, 3, 3);
 }
 
 .my-input {
     background-color: var(--bs-skoon-light);
-    border: 2px solid var(--bs-skoon-dark);
-    border-radius: 2rem;
-    padding-inline: 2rem;
-    font-size: 2rem;
+    border: 1px solid var(--bs-skoon-dark);
+    border-radius: 1rem;
+    padding-inline: 1rem;
+    font-size: var(--fs-p);
 }
 
 
@@ -128,13 +128,13 @@ h1, h2, h3, h4, p, a {
 }
 
 .accounts-logo {
-    width: 432px;
+    width: 216px;
 }
 
 .accounts-form {
-    font-size: 2rem;
+    font-size: var(--fs-p);
     font-family: var(--ff-skoon-body);
-    margin-top: 5rem;
+    margin-top: 2rem;
 }
 
 .account-field {
@@ -142,7 +142,7 @@ h1, h2, h3, h4, p, a {
    margin: auto;
    width: 70%;
    border-radius: 0.5rem;
-   padding: 0.6rem 2rem;
+   padding: 0.6rem 1rem;
    margin-bottom: 0.5rem
 }
 
@@ -193,7 +193,7 @@ a.signup {
 
 nav {
     width: 100%;
-    height: 12rem;
+    height: 4rem;
     background-color: #041c00;
     position: fixed;
     bottom: 0;
@@ -208,40 +208,38 @@ nav {
     align-content: center;
     align-items: center;
     justify-content: space-between;
-
+    border: 2px solid red;
 }
 
-.my-nav-container .logo {
-    position: relative;
-    bottom: 5px;
+.my-nav-container .logo img{
+    width: 108px;
 }
 
 .my-navlinks {
     display: flex;
     align-items: center;
     height: 100%;
+    border: 2px solid red
 }
 
 .my-navlinks li a span {
-    position: relative;
-    top: 10px;
-    margin-left: 4rem;
-    font-size: 4rem;
+    margin-left: 1rem;
+    font-size: 2rem;
     color: var(--bs-skoon-light);
 }
 
 .my-navlinks .logout {
-    margin-left: 4rem;
+    margin-left: 2rem;
 }
 
 /* main container */
 
 .my-main-container {
     width: 92%;
-    max-width: 55rem;
+    max-width: 600px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 0rem 2rem;
+    gap: 0rem 1rem;
     grid-template-rows: auto;
     grid-template-areas:
     "header header header header"
@@ -260,18 +258,18 @@ nav {
 
 .page-heading {
     grid-area: header;
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .ls {
     grid-area: ls;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 2rem;
+    gap: 1rem;
     grid-template-areas: "ls-input ls-input ls-submit";
-    margin-bottom: 2rem;
-    height: 5rem;
+    margin-bottom: 1rem;
+    height: 2rem;
 }
 
 .ls-input {
@@ -295,24 +293,24 @@ nav {
 
 .display-wall {
     grid-area: display-wall;
-    border: 2px solid var(--bs-skoon-dark);
-    border-radius: 3rem;
+    border: 1px solid var(--bs-skoon-dark);
+    border-radius: 2rem;
     width: 90%;
     margin-inline: auto;
 }
 
 .component-table {
     grid-area: component-table;
-    margin-top: 2rem;
-    border-bottom: 2px solid var(--bs-skoon-dark);
-    height: 24rem;
+    margin-top: 1rem;
+    border-bottom: 1px solid var(--bs-skoon-dark);
+    height: 12rem;
     overflow: scroll;
     width: 100%;
 }
 
 .calculations-div {
     grid-area: calculations-div;
-    height:20rem;
+    height: 10rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -323,7 +321,7 @@ nav {
     grid-area: component-form;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 0rem 2rem;
+    gap: 0rem 1rem;
     grid-template-areas: 
         "material-label material-label thickness-label ."
         "material-input material-input thickness-input component-submit";
@@ -331,7 +329,7 @@ nav {
 }
 
 .material-label, .thickness-label {
-    font-size: 2rem;
+    font-size: 1rem;
     font-family: var(--ff-skoon-body);
 }
 
@@ -361,17 +359,17 @@ nav {
 
 .clear-submit {
     grid-area: clear-submit;
-    margin-bottom: 2rem;
+    margin-bottom:12rem;
 }
 
 .button-text {
-    font-size: 2rem;
+    font-size: 1rem;
     font-family: var(--ff-skoon-body);
     font-weight: 300;
 }
 
 .calcs-help p {
-    font-size: 3rem;
+    font-size: 1rem;
 }
 
 
