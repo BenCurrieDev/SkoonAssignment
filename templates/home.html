@@ -8,33 +8,32 @@
 
 
 
-
     <div class="load-save-clear">
         
       {% if components %}
   
-          <form method="POST" class="ls">
+          <form method="POST" class="load-save-form">
             {% csrf_token %}
             {% render_field save_form.save_composite %}
-            {% render_field save_form.name id="name" class="ls-input my-input" placeholder="Enter name..." %}
-            <input type="submit" value="Save As" class="my-button my-submit ls-submit" name="saveButton">
+            {% render_field save_form.name id="name" class="load-save-field" placeholder="Enter name..." %}
+            <input type="submit" value="SAVE AS" class="button submit-button" name="saveButton">
           </form>
         
       {% else %}
   
-          <form method="GET" class="ls">
+          <form method="GET" class="load-save-form">
             {% csrf_token %}
             {% render_field load_form.load_composite %}
-            {% render_field load_form.composite id="load" class="ls-input my-input" %}
-            <input type="submit" value="Load" class="my-button my-submit ls-submit" name="loadButton">
+            {% render_field load_form.composite id="load" class="load-save-field" %}
+            <input type="submit" value="LOAD" class="button submit-button" name="loadButton">
           </form>
           
       {% endif %}
 
-      <form method="POST" class="clear-submit">
+      <form method="POST" class="clear-form">
         {% csrf_token %}
         {% render_field clear_form.clear_material_view %}
-        <input type="submit" value="{% if composites %}Close{% else %}Reset{% endif %}" class="my-button my-cancel clear-button" name="clearButton">
+        <input type="submit" class="button clear-button" value="{% if composites %}CLOSE{% else %}RESET{% endif %}" name="clearButton">
       </form>
 
     </div>

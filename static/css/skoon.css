@@ -149,20 +149,18 @@
         color: var(--clr-cream);
     }
 
-    .my-button {
-        background-color: var(--bs-skoon-light);
-        border-radius: 1rem;
-        font-family: var(--ff-skoon-body);
-        font-size: 1rem;
-    }
-
     /* components */
     .button {
-        font-family: var(--ff-sans-h);
-        font-weight: var(--fw-l);
-        font-size: var(--fs-pl);
-        padding: calc(0.5 * var(--fs-pl)) calc(2 * var(--fs-pl));
+        font-family: var(--ff-sans-p);
+        font-weight: var(--fw-n);
+        font-size: var(--fs-p);
+        background-color: var(--clr-white);
+        border: none;
     }
+
+        .button:hover {
+            cursor: pointer;
+        }
 
     .input {
         padding: var(--fs-p);
@@ -365,7 +363,50 @@
 
 /* Calculator */
         
-    
+        .load-save-clear {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-block: 1vh;
+        }
+
+        .load-save-form {
+            display: flex;
+            justify-content: end;
+            width: 100%;
+        }
+
+        .load-save-field {
+            border: 1px solid var(--clr-primary-lt);
+            border-radius: 0.2em;
+            padding: 0.3em 0;
+            padding-inline: calc(0.2 * var(--sp));
+            width: 100%;
+            max-width: 20em;
+        }
+
+        input.submit-button {
+            border: 1px solid var(--clr-green);
+            border-radius: 0.2em;
+            color: var(--clr-green);
+            padding: 0.3em 0;
+            padding-inline: 0.5em;
+            margin-left: 0.5em;
+        }
+
+        .clear-form {
+            display: flex;
+            justify-content: end;
+        }
+
+        input.clear-button {
+            border: 1px solid var(--clr-red);
+            border-radius: 0.2em;
+            color: var(--clr-red);
+            padding: 0.3em 0;
+            padding-inline: 0.5em;
+            margin-left: 0.5em;
+        }
 
 
         .material-view {
@@ -381,6 +422,7 @@
             border-left: 1px solid black;
             display: flex;
         }
+
         .material-block {
             height: 100%;
         }
