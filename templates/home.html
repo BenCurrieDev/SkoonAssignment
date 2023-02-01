@@ -66,7 +66,7 @@
               <tr>
                 <th class="col-m col-1">Material</th>
                 <th class="col-d">Depth</th>
-                <th class="col-r">R Value</th>
+                <th class="col-r">R-value</th>
               </tr>
             </thead>
             
@@ -93,43 +93,33 @@
   
   
       <div class="results-container">
-       
-        {% if components %}
+        <h4 class="measurements-heading">Measurements</h4>
+        <div class="results-contents">
+          {% if components %}
   
-          <div>
-            <p>U</p>
-            <p>{{ uVal }}</p>
+          <div class="u-result">
+            <p>U-value</p>
+            <p>{{ uVal }} Wm<sup>-2</sup>K<sup>-1</sup></p>
           </div>
   
-          {% if insulation %}  
   
-            <div>
-              <p>Additional Insulation Requirement</p>
-              <p>{{ insulation }}mm</p>
-            </div>
+          <div class="insulation-section">
+            <p>{% if insulation %}{{ insulation }}{% else %}--{% endif %} mm</p>
   
-          {% else %}
-  
-            <div>
-              <p>No Insulation Requirements Calculated</p>
-            </div>
-  
-          {% endif %}
-  
-          <form method="POST" class="insulation">
-            {% csrf_token %}
-            {% render_field insulator_form.calculate_insulation %}
-            {% render_field insulator_form.target_u id="target_u" %}
-            <input type="submit" value="Calculate Additional Insulation" name="saveButton">
-          </form>
-  
+            <form method="POST" class="insulation-form">
+              {% csrf_token %}
+              {% render_field insulator_form.calculate_insulation %}
+              {% render_field insulator_form.target_u id="target_u" placeholder="Target U..." class="insulation-input" %}
+              <input type="submit" value="CALC" name="saveButton">
+            </form>
+          </div>
         {% else %}
   
-          <div>
-              <p>Add materials to recieve U values and insulation requirements.</p>
-          </div>
+          <p class="no-results">Add materials to recieve U values and insulation requirements.</p>
   
         {% endif %}
+        </div>
+      
   
      </div>
   

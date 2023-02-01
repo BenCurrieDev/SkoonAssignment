@@ -448,6 +448,7 @@
     .display-section {
         display: flex;
         flex-direction: column;
+        margin-block: 1vh;
     }
 
     .material-view-container {
@@ -486,7 +487,7 @@
     }
 
     .materials-table-container {
-        margin-block: 1vh;
+        margin-top: 1vh;
         height: 6.5rem;
         overflow: scroll;
         border-bottom: 2px solid var(--clr-secondary);
@@ -519,22 +520,76 @@
         width: 26%;
     }
 
-    @media screen and (min-width: 1000px) {
-        .display-section {
-            flex-direction: row;
-            justify-content: space-between;
+        @media screen and (min-width: 1000px) {
+            .display-section {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .material-view-container {
+                width: 49.5%;
+                height: 20vh;
+            }
+
+            .materials-table-container {
+                width: 49.5%;
+                height: calc(20vh - 2px);
+                margin-top: 0;
+            }
         }
 
-        .material-view-container {
-            width: 49.5%;
-            height: 20vh;
-        }
+    .results-container {
+        background-color: var(--clr-tertiary);
+        height: 20vh;
+        margin-block: 1vh;
+        display: flex;
+        flex-direction: column;
+    }
 
-        .materials-table-container {
-            width: 49.5%;
-            height: calc(20vh - 2px);
-            margin-block: 0;
-        }
+    .measurements-heading {
+        color: var(--clr-white);
+        margin: 0.4rem 0.4rem 0rem 0.4rem;
+    }
+
+    .results-contents {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    .no-results {
+        color: var(--clr-white);
+        text-align: center;
+        font-size: var(--fs-ps);
+    }
+
+    .u-result {
+        width: 40%;
+        text-align: center;
+        height: 80%;
+        border: 1px solid var(--clr-white);
+        margin: 0.5rem;
+    }
+
+    .u-result p {
+        color: var(--clr-white);
+        margin-block: 1em;
+    }
+
+    .insulation-section {
+        width: 60%;
+        height: 80%;
+        border: 1px solid var(--clr-white);
+        margin: 0.5rem;
+    }
+
+    .insulation-input {
+        border: 1px solid var(--clr-white);
+        background-color: var(--clr-tertiary);
+        border-radius: 0.2rem;
+        padding: 0.3em 0;
+        padding-inline: calc(0.2 * var(--sp));
     }
 
 
