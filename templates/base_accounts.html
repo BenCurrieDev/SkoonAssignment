@@ -2,14 +2,10 @@
 
 {% load static %}
 
-{% block stylesheet %}
-  <link rel="stylesheet" href="{% static 'css/accounts.css' %}">
-{% endblock %}
-
 {% block body %}
-  <div class="my-accounts-container">
-    <h1 class="">
-      <a href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" class="accounts-logo"></a>
+  <div class="accounts-body">
+    <h1 class="fc-white">
+      skoonUlator
     </h1>
     {% block content %}
     {% endblock %}

@@ -131,6 +131,10 @@ h1, h2, h3, h4, p, td, th {
 
 /* accounts */
 
+.accounts-body {
+    height: 100vh;
+    width: 100%;
+    background-color: var(--clr-primary-dk);
+}
     /* login */
 
-    
