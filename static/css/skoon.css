@@ -683,14 +683,13 @@
 
     }
 
-        @media screen and (min-width: 640px) {
+        @media screen and (min-width: 680px) {
             .u-result, .insulation-section {
                 flex-direction: row;
-                margin-inline: 0.5rem;
             }
 
             .u-result p, .insulation-section p {
-                margin-inline: 0.2rem;
+                margin-right: 0.4rem;
                 
             }
             .results-container {
@@ -701,13 +700,12 @@
             }
         }
 
-        @media screen and (min-width: 800px) {
+        @media screen and (min-width: 840px) {
             .u-result, .insulation-section {
-                margin-inline: 1rem;
             }
 
             .u-result p, .insulation-section p {
-                margin-inline: 0.5rem;
+                margin-right: 1.5rem;
                 font-size: var(--fs-pl);
             }
             .bold {
