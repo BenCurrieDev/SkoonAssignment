@@ -3,58 +3,150 @@
 {% load widget_tweaks %}
 
 {% block content %}
-<h2 class="f-skoon-heading fc-skoon-dark">Materials Database</h2>
-  <table class="table">
-    <thead class="thead-dark f-skoon-sub">
-      <tr>
-        <th>Material</th>
-        <th>Thermal Conductivity (W/mK)</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for material in materials %}
-        <tr>
-          <td>
-            {{ material.name }}
-          </td>
-          <td class="align-middle">
-            {{material.thermal_conductivity}}
-          </td>
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+    
+    <h1 class="page-heading">skoonUlator</h1>
 
-  <table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th>Composite</th>
-        <th>Thickness (mm)</th>
-        <th>U-Value (W/m<sup>2</sup>K)</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for composite in composites %}
-      <tr>
-        <td>
-          {{ composite.name }}
-        </td>
-        <td class="align-middle">
-          {{ composite.calcThickness }}
-        </td>
-        <td class="align-middle">
-          {{ composite.calcU }}
-        </td>
-        <td><form method="POST">
+
+    <div class="page-content">
+
+      <div class="load-save-clear">
+        
+        {% if components %}
+    
+            <form method="POST" class="load-save-form">
+              {% csrf_token %}
+              {% render_field save_form.save_composite %}
+              {% render_field save_form.name id="name" class="load-save-field" placeholder="Enter name..." %}
+              <input type="submit" value="SAVE AS" class="button submit-button" name="saveButton">
+            </form>
+          
+        {% else %}
+    
+            <form method="GET" class="load-save-form">
+              {% csrf_token %}
+              {% render_field load_form.load_composite %}
+              {% render_field load_form.composite id="load" class="load-save-field" %}
+              <input type="submit" value="LOAD" class="button submit-button" name="loadButton">
+            </form>
+            
+        {% endif %}
+  
+        <form method="POST" class="clear-form">
           {% csrf_token %}
-          {% render_field delete.delete_composite %}
-          {% render_field delete.to_delete value=composite.pk %}
-          <input type="submit" value="Delete" class="btn btn-danger" name="deleteButton">
-        </form></td>
-      </tr>
-    {% endfor %}
-    </tbody>
-  </table>
-</div>
+          {% render_field clear_form.clear_material_view %}
+          <input type="submit" class="button clear-button" value="{% if composites %}CLOSE{% else %}RESET{% endif %}" name="clearButton">
+        </form>
+  
+      </div>
+     
+  
+  
+  
+      <div class="display-section">
+        <div class="material-view-container">
+        
+          <h4 class="material-heading">{% if composites %}Display: {{ active_composite.name }}{% elif components %}Display: not saved{% else %}Add Materials To View{% endif %}</h4>
+    
+          <div class="material-view">
+            {% if components %}
+              <div class="composite-block">
+                {% for component in components %}
+                  <div class="material-block" style="width:{{ component.thickness }}px; background-color:{{ component.material.color }}"></div>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+    
+        </div>
+  
+        <div class="materials-table-container">
+          <table>
+    
+            <thead>
+              <tr>
+                <th class="col-m col-1">Material</th>
+                <th class="col-d">Depth</th>
+                <th class="col-r">R-value</th>
+              </tr>
+            </thead>
+            
+              <tbody>
+                {% for component in components %}
+                  <tr>
+                    <td class="col-1">
+                      {{ component.material.name }}
+                    </td>
+                    <td>
+                      {{ component.thickness }} mm
+                    </td>
+                    <td>{{ component.displayR }} m<sup>2</sup>KW<sup>-1</sup></td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+    
+          </table>
+        </div>
+  
+      </div>
+      
+  
+  
+  
+      <div class="results-container">
+        <h4 class="measurements-heading">Measurements</h4>
+        <div class="results-contents">
+          {% if components %}
+  
+          <div class="u-result">
+            <p>U-value</p>
+            <p><span class="bold">{{ uVal }}</span> Wm<sup>-2</sup>K<sup>-1</sup></p>
+          </div>
+  
+  
+          <div class="insulation-section">
+
+            <p class="insulation-header">Insulation requirements</p>
+
+            <p class="insulation-result">{% if insulation %}{% if insulation >= 0 %}<span class="bold">+{% endif %}{{ insulation }}</span>{% else %}--{% endif %} mm</p>
+
+            <form method="POST" class="insulation-form">
+              {% csrf_token %}
+              {% render_field insulator_form.calculate_insulation %}
+              {% render_field insulator_form.target_u id="target_u" placeholder="Target U..." class="insulation-input" %}
+              <input type="submit" value="CALC" name="insultationButton" class="insulation-button">
+            </form>
+            
+          </div>
+        {% else %}
+  
+          <p class="no-results">Add materials to recieve U values and estimate insulation requirements.</p>
+  
+        {% endif %}
+        </div>
+      
+  
+     </div>
+  
+  
+  
+     
+    <form method="POST" class="add-material-form">
+  
+      {% csrf_token %}
+      {% render_field component_form.add_material %}
+      {% render_field component_form.material id="material" class="material-select" %}
+          
+      {% render_field component_form.thickness id="thickness" class="depth-input" placeholder="mm depth..." %}
+          
+      <button type="submit" name="addMaterialButton" class="submit-material">ADD</button>
+        
+    </form>
+
+  </div>
+    
+
+
+      
+
 {% endblock %}
+

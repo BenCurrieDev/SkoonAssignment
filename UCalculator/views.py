@@ -7,7 +7,7 @@ from .forms import NewComponentForm, ClearForm, SaveForm, LoadForm, InsulatorFor
 from django.contrib.auth.decorators import login_required
 
 @login_required
-def home(request):
+def database(request):
     materials = Material.objects.all()
     composites = Composite.objects.filter(user=request.user).all()
     delete = DeleteForm()
@@ -23,13 +23,13 @@ def home(request):
             if form.is_valid():
                 to_del = request.POST['to_delete']
                 composites.get(pk=to_del).delete()
-                redirect('home')
+                redirect('database')
                 
 
-    return render(request, 'home.html', context)
+    return render(request, 'database.html', context)
 
 @login_required
-def calculator(request):
+def home(request):
 
     def deactivate():
         for component in components:
@@ -66,11 +66,11 @@ def calculator(request):
                 component = form.save(commit=False)
                 component.user = user
                 component.save()
-                return redirect('calculator')
+                return redirect('home')
         
         if 'clear_material_view' in request.POST:
             deactivate()
-            return redirect('calculator')
+            return redirect('home')
         
         if 'save_composite' in request.POST:
             if components:
@@ -85,7 +85,7 @@ def calculator(request):
                     for component in components:
                         component.composite = composite
                         component.save()
-                    return redirect('calculator')
+                    return redirect('home')
         
         if 'calculate_insulation' in request.POST:
             form = InsulatorForm(request.POST)
@@ -107,7 +107,7 @@ def calculator(request):
                     for component in to_load.component_set.all():
                         component.active = True
                         component.save()
-                    return redirect('calculator')
+                    return redirect('home')
             
 
     component_form = NewComponentForm()
@@ -129,4 +129,4 @@ def calculator(request):
         'insulation': insulation
     }
         
-    return render(request, 'calculator.html', context)
+    return render(request, 'home.html', context)

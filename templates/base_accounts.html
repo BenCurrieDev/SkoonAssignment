@@ -2,16 +2,15 @@
 
 {% load static %}
 
-{% block stylesheet %}
-  <link rel="stylesheet" href="{% static 'css/accounts.css' %}">
-{% endblock %}
-
 {% block body %}
-  <div class="container">
-    <h1 class="text-center logo my-4">
-      <a href="{% url 'home' %}">skoon<sub>u-calc</sub></a>
-    </h1>
-    {% block content %}
-    {% endblock %}
+  <div class="accounts-body">
+    <div class="accounts-container">
+      <h1 class="fc-white accounts-header">
+        skoonUlator
+      </h1>
+      {% block content %}
+      {% endblock %}
+    </div>
+  
   </div>
 {% endblock %}
