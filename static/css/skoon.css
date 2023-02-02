@@ -37,7 +37,7 @@
     --nav-height: calc(1.9 * var(--sp));
     --page-height: calc(100vh - var(--nav-height));
     --container-width: 94%;
-    --container-max-width: 1000px;
+    --container-max-width: 1200px;
 
     --shadow: -0.1em 0.1em 0.1em var(--clr-drimary-dk);
 
@@ -330,7 +330,7 @@
        font-weight: var(--fw-n);
     }
 
-        @media screen and (min-width: 1000px) {
+        @media screen and (min-width: 1300px) {
 
             .navbar {
                 top: 0;
@@ -391,10 +391,13 @@
         justify-content: center;
     }
 
-        @media screen and (min-width: 1000px) {
+        @media screen and (min-width: 1300px) {
             .main-container {
                 position: relative;
                 top: var(--nav-height)
+            }
+            .page-content {
+                justify-content: start;
             }
         }
     
@@ -548,7 +551,7 @@
         width: 26%;
     }
 
-        @media screen and (min-width: 1000px) {
+        @media screen and (min-width: 800px) {
             .display-section {
                 flex-direction: row;
                 justify-content: space-between;
@@ -564,6 +567,11 @@
                 width: 49%;
                 height: calc(100% - 2px);
                 margin-top: 0;
+            }
+
+            .materials-table-container td {
+                font-size: var(--fs-p);
+                padding-top: 0.4rem;
             }
         }
 
@@ -676,6 +684,9 @@
             }
             .results-container {
                 height: 14vh;
+            }
+            .no-results {
+                font-size: var(--fs-p);
             }
         }
 
