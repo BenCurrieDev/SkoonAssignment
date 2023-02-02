@@ -396,6 +396,15 @@
         justify-content: center;
     }
 
+    .page-content-db {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
         @media screen and (min-width: 1300px) {
             .main-container {
                 position: relative;
@@ -751,6 +760,97 @@
     }
 
 
+/* Database */
+
+    .materials-db-table-container {
+        margin-block: 1.5vh;
+        height: auto;
+    }
+
+        .materials-db-table-container::-webkit-scrollbar-track {
+            background-color: var(--clr-white);
+        }
+
+        .materials-db-table-container::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .materials-db-table-container::-webkit-scrollbar-thumb {
+            background-color: var(--clr-secondary);
+        }
+
+
+    .materials-db-table-container, .materials-db-table-container table {
+        width: 100%;
+        max-width: 25rem;
+    }
+
+    .materials-db-table-container thead {
+        background-color: var(--clr-secondary);
+    }
+
+    .materials-db-table-container th {
+        color: var(--clr-white);
+    }
+
+    .materials-db-table-container .col-1 {
+        padding-left: 0.4rem;
+        width: 70%;
+    }
+
+
+
+    .composites-db-table-container {
+        margin-top: 1.5vh;
+        overflow: auto;
+        flex-grow: 1;
+    }
+
+        .composites-db-table-container::-webkit-scrollbar-track {
+            background-color: var(--clr-white);
+        }
+
+        .composites-db-table-container::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .composites-db-table-container::-webkit-scrollbar-thumb {
+            background-color: var(--clr-secondary);
+        }
+
+
+    .composites-db-table-container, .composites-db-table-container table {
+        width: 100%;
+        max-width: 30rem;
+    }
+
+    .composites-db-table-container thead {
+        background-color: var(--clr-secondary);
+    }
+
+    .composites-db-table-container th {
+        color: var(--clr-white);
+    }
+
+    .composites-db-table-container .col-1 {
+        padding-left: 0.4rem;
+        width: 45%;
+    }
+
+    .table-delete {
+        font-family: var(--ff-sans-p);
+        font-weight: var(--fw-n);
+        font-size: var(--fs-p);
+        padding: calc(0.1 * var(--fs-p)) calc(0.4 * var(--fs-p));
+        background-color: var(--clr-red);
+        color: var(--clr-white);
+        margin-top: 0.3rem;
+    }
+
+    .table-del-container {
+        display: flex;
+        justify-content: flex-end;
+    }
 
 
 
