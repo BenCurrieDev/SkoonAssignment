@@ -564,14 +564,16 @@
             }
 
             .material-view-container {
-                width: 49%;
+                width: 50%;
                 height: 100%;
+                margin-right: 0.3rem;
             }
 
             .materials-table-container {
-                width: 49%;
+                width: 50%;
                 height: calc(100% - 2px);
                 margin-top: 0;
+                margin-left: 0.3rem;
             }
 
             .materials-table-container td {
