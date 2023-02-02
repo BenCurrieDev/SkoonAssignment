@@ -203,6 +203,11 @@
         font-size: var(--fs-xs);
     }
 
+    .bold {
+        font-weight: var(--fw-b);
+        font-size: var(--fs-pl);
+    }
+
     /* layout */
     .center {
         width: 100%;
@@ -698,6 +703,9 @@
             .u-result p, .insulation-section p {
                 margin-inline: 0.5rem;
                 font-size: var(--fs-pl);
+            }
+            .bold {
+                font-size: var(--fs-h3);
             }
         }
 

@@ -99,7 +99,7 @@
   
           <div class="u-result">
             <p>U-value</p>
-            <p>{{ uVal }} Wm<sup>-2</sup>K<sup>-1</sup></p>
+            <p><span class="bold">{{ uVal }}</span> Wm<sup>-2</sup>K<sup>-1</sup></p>
           </div>
   
   
@@ -107,7 +107,7 @@
 
             <p class="insulation-header">Insulation requirements</p>
 
-            <p class="insulation-result">{% if insulation %}{% if insulation >= 0 %}+{% endif %}{{ insulation }}{% else %}--{% endif %}mm</p>
+            <p class="insulation-result">{% if insulation %}{% if insulation >= 0 %}<span class="bold">+{% endif %}{{ insulation }}</span>{% else %}--{% endif %} mm</p>
 
             <form method="POST" class="insulation-form">
               {% csrf_token %}
