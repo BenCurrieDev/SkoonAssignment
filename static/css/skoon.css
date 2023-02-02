@@ -566,7 +566,10 @@
 
     .u-result {
         width: 40%;
-        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         height: 80%;
         border: 1px solid var(--clr-white);
         margin: 0.5rem;
@@ -574,7 +577,7 @@
 
     .u-result p {
         color: var(--clr-white);
-        margin-block: 1em;
+        margin-block: 0.5em;
     }
 
     .insulation-section {
