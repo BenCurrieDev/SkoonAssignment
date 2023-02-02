@@ -378,6 +378,7 @@
         text-align: right;
         font-size: var(--fs-h2);
         margin-top: calc(var(--fs-h2) / 4);
+        margin-bottom: 1.5vh;
         padding-bottom: calc(var(--fs-h2) / 10);;
         border-bottom: 2px solid var(--clr-primary-dk);
     }
@@ -404,7 +405,7 @@
         display: flex;
         justify-content: space-between;
         width: 100%;
-        margin-block: 1vh;
+        margin-block: 1.5vh;
     }
 
     .load-save-form {
@@ -453,7 +454,8 @@
     .display-section {
         display: flex;
         flex-direction: column;
-        margin-block: 1vh;
+        margin-block: 1.5vh;
+        flex-grow: 1;
     }
 
     .material-view-container {
@@ -461,6 +463,8 @@
         position: relative;
         height: 8rem;
         overflow: hidden;
+        margin-bottom: 1.5vh;
+        flex-grow: 2;
     }
 
     .material-heading {
@@ -496,10 +500,11 @@
 
 
     .materials-table-container {
-        margin-top: 1vh;
+        margin-top: 1.5vh;
         height: 6.5rem;
         overflow: auto;
         border-bottom: 2px solid var(--clr-secondary);
+        flex-grow: 1;
     }
 
         .materials-table-container::-webkit-scrollbar-track {
@@ -547,16 +552,17 @@
             .display-section {
                 flex-direction: row;
                 justify-content: space-between;
+                max-height: 22rem;
             }
 
             .material-view-container {
-                width: 49.5%;
-                height: 20vh;
+                width: 49%;
+                height: 100%;
             }
 
             .materials-table-container {
-                width: 49.5%;
-                height: calc(20vh - 2px);
+                width: 49%;
+                height: calc(100% - 2px);
                 margin-top: 0;
             }
         }
@@ -569,7 +575,7 @@
     .results-container {
         background-color: var(--clr-tertiary);
         height: 20vh;
-        margin-block: 1vh;
+        margin-block: 1.5vh;
         display: flex;
         flex-direction: column;
     }
@@ -692,6 +698,8 @@
         display: flex;
         width: 100%;
         justify-content: end;
+        margin-top: 1.5vh;
+        margin-bottom: 3vh;
     }
 
     .material-select {
