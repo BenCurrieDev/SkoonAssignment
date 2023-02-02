@@ -134,13 +134,11 @@
   
       {% csrf_token %}
       {% render_field component_form.add_material %}
-      <label for="material">Select Material</label>
-      {% render_field component_form.material id="material" %}
+      {% render_field component_form.material id="material" class="material-select" %}
           
-      <label for="thickness">Depth (mm)</label>
-      {% render_field component_form.thickness id="thickness" %}
+      {% render_field component_form.thickness id="thickness" class="depth-input" placeholder="mm depth..." %}
           
-      <button type="submit" name="addMaterialButton">Add Material</button>
+      <button type="submit" name="addMaterialButton" class="submit-material">ADD</button>
         
     </form>
 
