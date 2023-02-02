@@ -45,7 +45,7 @@
       <div class="display-section">
         <div class="material-view-container">
         
-          <h4 class="material-heading">{% if composites %}{{ active_composite.name }}{% else %}Add Materials To View{% endif %}</h4>
+          <h4 class="material-heading">{% if composites %}Display: {{ active_composite.name }}{% elif components %}Display: not saved{% else %}Add Materials To View{% endif %}</h4>
     
           <div class="material-view">
             {% if components %}
@@ -104,18 +104,22 @@
   
   
           <div class="insulation-section">
-            <p>{% if insulation %}{{ insulation }}{% else %}--{% endif %} mm</p>
-  
+
+            <p class="insulation-header">Insulation requirements</p>
+
+            <p class="insulation-result">{% if insulation %}{% if insulation >= 0 %}+{% endif %}{{ insulation }}{% else %}--{% endif %}mm</p>
+
             <form method="POST" class="insulation-form">
               {% csrf_token %}
               {% render_field insulator_form.calculate_insulation %}
               {% render_field insulator_form.target_u id="target_u" placeholder="Target U..." class="insulation-input" %}
-              <input type="submit" value="CALC" name="saveButton">
+              <input type="submit" value="CALC" name="insultationButton" class="insulation-button">
             </form>
+            
           </div>
         {% else %}
   
-          <p class="no-results">Add materials to recieve U values and insulation requirements estimations.</p>
+          <p class="no-results">Add materials to recieve U values and estimate insulation requirements.</p>
   
         {% endif %}
         </div>
