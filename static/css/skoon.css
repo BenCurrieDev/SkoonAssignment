@@ -556,7 +556,14 @@
         width: 26%;
     }
 
-        @media screen and (min-width: 800px) {
+        @media screen and (min-width: 600px) {
+            .materials-table-container td {
+                font-size: var(--fs-p);
+                padding-top: 0.4rem;
+            }
+        }
+
+        @media screen and (min-width: 1300px) {
             .display-section {
                 flex-direction: row;
                 justify-content: space-between;
@@ -576,11 +583,8 @@
                 margin-left: 0.3rem;
             }
 
-            .materials-table-container td {
-                font-size: var(--fs-p);
-                padding-top: 0.4rem;
-            }
         }
+
 
 
 
