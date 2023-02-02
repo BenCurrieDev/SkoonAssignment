@@ -491,6 +491,10 @@
         height: 100%;
     }
 
+
+
+
+
     .materials-table-container {
         margin-top: 1vh;
         height: 6.5rem;
@@ -556,6 +560,11 @@
                 margin-top: 0;
             }
         }
+
+
+
+
+
 
     .results-container {
         background-color: var(--clr-tertiary);
@@ -637,7 +646,7 @@
     .insulation-button {
         border: 1px solid var(--clr-green);
         color: var(--clr-tertiary);
-        font-weight: var(--fw-n);
+        font-weight: var(--fw-b);
         padding: 0.3em 0;
         padding-inline: 0.5em;
         margin-left: 0.5em;
@@ -674,6 +683,10 @@
                 font-size: var(--fs-pl);
             }
         }
+
+
+
+
 
     .add-material-form {
         display: flex;
