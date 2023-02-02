@@ -701,8 +701,6 @@
         }
 
         @media screen and (min-width: 840px) {
-            .u-result, .insulation-section {
-            }
 
             .u-result p, .insulation-section p {
                 margin-right: 1.5rem;
