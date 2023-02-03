@@ -362,12 +362,6 @@
 
         }
 
-
-
-
-
-
-
 /* PAGE LAYOUT */
 
     body {
@@ -421,7 +415,6 @@
             }
         }
     
-
 /* Calculator */
         
     .load-save-clear {
@@ -471,9 +464,6 @@
     }
 
 
-
-
-
     .display-section {
         display: flex;
         flex-direction: column;
@@ -517,9 +507,6 @@
     .material-block {
         height: 100%;
     }
-
-
-
 
 
     .materials-table-container {
@@ -599,11 +586,6 @@
             }
 
         }
-
-
-
-
-
 
 
     .results-container {
@@ -728,9 +710,6 @@
         }
 
 
-
-
-
     .add-material-form {
         display: flex;
         width: 100%;
@@ -766,7 +745,6 @@
         margin-left: 0.5em;
     }
 
-
 /* Database */
 
     .materials-db-table-container {
@@ -786,7 +764,6 @@
             background-color: var(--clr-secondary);
         }
 
-
     .materials-db-table-container, .materials-db-table-container table {
         width: 100%;
         max-width: 25rem;
@@ -805,8 +782,6 @@
         width: 70%;
     }
 
-
-
     .composites-db-table-container {
         margin-top: 1.5%;
         overflow: auto;
@@ -824,7 +799,6 @@
         .composites-db-table-container::-webkit-scrollbar-thumb {
             background-color: var(--clr-secondary);
         }
-
 
     .composites-db-table-container, .composites-db-table-container table {
         width: 100%;

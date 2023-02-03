@@ -1,34 +1,33 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from .models import Material, Composite, Component
-from django.contrib.auth.models import User
 from .forms import NewComponentForm, ClearForm, SaveForm, LoadForm, InsulatorForm, DeleteForm
 
 from django.contrib.auth.decorators import login_required
+
 
 @login_required
 def database(request):
     materials = Material.objects.all()
     composites = Composite.objects.filter(user=request.user).all()
     delete = DeleteForm()
-   
-    
+
     if request.method == "POST":
         print('POST')
-        if 'delete_composite' in request.POST: 
+        if 'delete_composite' in request.POST:
             form = DeleteForm(request.POST)
             if form.is_valid():
                 to_del = request.POST['to_delete']
                 if composites.filter(pk=to_del):
                     composites.get(pk=to_del).delete()
 
-    context = { 
+    context = {
         'materials': materials,
         'composites': composites,
         'delete': delete
-         }            
+    }
 
     return render(request, 'database.html', context)
+
 
 @login_required
 def home(request):
@@ -45,12 +44,16 @@ def home(request):
             active_composite.save()
 
     materials = Material.objects.all()
-    composites = Composite.objects.filter(user=request.user).filter(active=True).all()
+    composites = Composite.objects.filter(
+        user=request.user).filter(active=True).all()
+
     if composites:
         active_composite = composites[0]
     else:
         active_composite = ''
-    components = Component.objects.filter(user=request.user).filter(active=True).all()
+
+    components = Component.objects.filter(
+        user=request.user).filter(active=True).all()
     user = request.user
     clear_form = ClearForm()
     uVal = 'N/A'
@@ -61,19 +64,19 @@ def home(request):
     insulation = ''
 
     if request.method == 'POST':
-        
-        if 'add_material' in request.POST: 
+
+        if 'add_material' in request.POST:
             form = NewComponentForm(request.POST)
             if form.is_valid():
                 component = form.save(commit=False)
                 component.user = user
                 component.save()
                 return redirect('home')
-        
+
         if 'clear_material_view' in request.POST:
             deactivate()
             return redirect('home')
-        
+
         if 'save_composite' in request.POST:
             if components:
                 form = SaveForm(request.POST)
@@ -88,15 +91,15 @@ def home(request):
                         component.composite = composite
                         component.save()
                     return redirect('home')
-        
+
         if 'calculate_insulation' in request.POST:
             form = InsulatorForm(request.POST)
             if form.is_valid():
                 target_u = request.POST['target_u']
-                insulation = round(0.022 * (1/float(target_u) - rSum)* 1000)
-
+                insulation = round(0.022 * (1/float(target_u) - rSum) * 1000)
 
     if request.method == 'GET':
+
         if 'load_composite' in request.GET:
             form = LoadForm(request.GET)
             if form.is_valid():
@@ -110,7 +113,6 @@ def home(request):
                         component.active = True
                         component.save()
                     return redirect('home')
-            
 
     component_form = NewComponentForm()
     save_form = SaveForm()
@@ -130,5 +132,5 @@ def home(request):
         'uVal': uVal,
         'insulation': insulation
     }
-        
+
     return render(request, 'home.html', context)
