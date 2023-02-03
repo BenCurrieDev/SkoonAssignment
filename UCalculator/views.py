@@ -11,20 +11,22 @@ def database(request):
     materials = Material.objects.all()
     composites = Composite.objects.filter(user=request.user).all()
     delete = DeleteForm()
+   
+    
+    if request.method == "POST":
+        print('POST')
+        if 'delete_composite' in request.POST: 
+            form = DeleteForm(request.POST)
+            if form.is_valid():
+                to_del = request.POST['to_delete']
+                if composites.filter(pk=to_del):
+                    composites.get(pk=to_del).delete()
+
     context = { 
         'materials': materials,
         'composites': composites,
         'delete': delete
-         }
-    
-    if request.method == "POST":
-          if 'delete_composite' in request.POST: 
-            form = DeleteForm(request.POST)
-            if form.is_valid():
-                to_del = request.POST['to_delete']
-                composites.get(pk=to_del).delete()
-                redirect('database')
-                
+         }            
 
     return render(request, 'database.html', context)
 
