@@ -35,7 +35,8 @@
     --sp: 2rem; /* SPACE CONTROL */
 
     --nav-height: calc(1.9 * var(--sp));
-    --page-height: calc(var(--vh, 1vh) * 100 - var(--nav-height));
+    --port-height: calc(var(--vh, 1vh) * 100);
+    --page-height:  calc(var(--port-height) - var(--nav-height));
     --container-width: 94%;
     --container-max-width: 1200px;
 
@@ -49,6 +50,10 @@
         height: 100%;
         width: 100%;
         margin: 0px;
+    }
+
+    html {
+        height: var(--port-height);
     }
 
     h1, h2 {
@@ -222,7 +227,7 @@
 /* accounts */
 
     .accounts-body {
-        height: 100vh;
+        height: var(--port-height);
         width: 100%;
         background-color: var(--clr-primary-dk);
         display: flex;
@@ -368,6 +373,7 @@
     body {
         background-color: var(--clr-white);
     }
+
     .main-container {
         width: var(--container-width);
         max-width: var(--container-max-width);
@@ -383,7 +389,7 @@
         text-align: right;
         font-size: var(--fs-h2);
         margin-top: calc(var(--fs-h2) / 4);
-        margin-bottom: 1.5vh;
+        margin-bottom: 1.5%;
         padding-bottom: calc(var(--fs-h2) / 10);;
         border-bottom: 2px solid var(--clr-primary-dk);
     }
@@ -422,7 +428,7 @@
         display: flex;
         justify-content: space-between;
         width: 100%;
-        margin-block: 1.5vh;
+        margin-block: 1.5%;
     }
 
     .load-save-form {
@@ -471,16 +477,16 @@
     .display-section {
         display: flex;
         flex-direction: column;
-        margin-block: 1.5vh;
+        margin-block: 1.5%;
         flex-grow: 1;
     }
 
     .material-view-container {
         background-color: var(--clr-secondary);
         position: relative;
-        height: 8rem;
+        min-height: 6rem;
         overflow: hidden;
-        margin-bottom: 1.5vh;
+        margin-bottom: 1.5%;
         flex-grow: 2;
     }
 
@@ -517,8 +523,8 @@
 
 
     .materials-table-container {
-        margin-top: 1.5vh;
-        height: 6.5rem;
+        margin-top: 1.5%;
+        min-height: 5rem;
         overflow: auto;
         border-bottom: 2px solid var(--clr-secondary);
         flex-grow: 1;
@@ -602,8 +608,9 @@
 
     .results-container {
         background-color: var(--clr-tertiary);
-        height: 20vh;
-        margin-block: 1.5vh;
+        height: 20%;
+        min-height: 8rem;
+        margin-block: 1.5%;
         display: flex;
         flex-direction: column;
     }
@@ -728,8 +735,8 @@
         display: flex;
         width: 100%;
         justify-content: end;
-        margin-top: 1.5vh;
-        margin-bottom: 3vh;
+        margin-top: 1.5%;
+        margin-bottom: 3%;
     }
 
     .material-select {
@@ -763,7 +770,7 @@
 /* Database */
 
     .materials-db-table-container {
-        margin-block: 1.5vh;
+        margin-block: 1.5%;
         height: auto;
     }
 
@@ -801,7 +808,7 @@
 
 
     .composites-db-table-container {
-        margin-top: 1.5vh;
+        margin-top: 1.5%;
         overflow: auto;
         flex-grow: 1;
     }
