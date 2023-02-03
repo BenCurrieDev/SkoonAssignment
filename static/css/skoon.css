@@ -35,7 +35,7 @@
     --sp: 2rem; /* SPACE CONTROL */
 
     --nav-height: calc(1.9 * var(--sp));
-    --page-height: calc(100% - var(--nav-height));
+    --page-height: calc(var(--vh, 1vh) * 100 - var(--nav-height));
     --container-width: 94%;
     --container-max-width: 1200px;
 
