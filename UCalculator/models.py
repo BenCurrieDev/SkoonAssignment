@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class Material(models.Model):
     name = models.CharField(max_length=30, unique=True)
-    thermal_conductivity = models.FloatField()
+    K_value = models.FloatField()
     color = models.CharField(max_length=30, default="grey")
 
     def __str__(self):
