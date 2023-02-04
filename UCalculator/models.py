@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from .constants import Rsi, Rse
 
 
 class Material(models.Model):
@@ -24,8 +25,9 @@ class Composite(models.Model):
     def U_value_2dp(self):
         components = self.component_set.all()
         if components:
-            Rs = [component.R_value() for component in components]
-            return round(1/(0.13 + sum(Rs) + 0.04), 2)
+            R_values = [component.R_value() for component in components]
+            R_total = Rsi + sum(R_values) + Rse
+            return round(1 / R_total, 2)
         else:
             return 'N/A'
 
