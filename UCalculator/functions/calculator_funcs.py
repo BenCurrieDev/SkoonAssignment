@@ -33,8 +33,8 @@ def save_composite(post, user, components, active_composite):
     form = SaveForm(post)
     if form.is_valid():
         if active_composite:
-            print(form, form.name)
-            active_composite.name = form.name
+            mock_instance = form.save(commit=False)
+            active_composite.name = mock_instance.name
             active_composite.save()
         else:
             active_composite = create_instance(user, form)
