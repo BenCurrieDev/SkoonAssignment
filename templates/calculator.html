@@ -71,7 +71,9 @@
           {% for component in active_components %}
 
           <div class="material-block"
-            style="width:{{ component.thickness }}px; background-color:{{ component.material.color }}">
+            style="
+            width:{{ component.thickness }}px; 
+            background-color:{{ component.material.color }}">
           </div>
 
           {% endfor %}

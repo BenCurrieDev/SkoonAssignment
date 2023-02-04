@@ -3,11 +3,13 @@
 {% load widget_tweaks %}
 
 {% block content %}
+
 <h1 class="page-heading">Materials Database</h1>
 
 <div class="page-content-db">
 
   <div class="materials-db-table-container">
+
     <table>
       <thead>
         <tr>
@@ -15,8 +17,11 @@
           <th>K-value</th>
         </tr>
       </thead>
+
       <tbody>
+
         {% for material in materials %}
+
         <tr>
           <td class="col-1">
             {{ material.name }}
@@ -25,12 +30,17 @@
             {{material.thermal_conductivity}} Wm<sup>-1</sup>K<sup>-1</sup>
           </td>
         </tr>
+
         {% endfor %}
+
       </tbody>
     </table>
+
   </div>
+  
 
   <div class="composites-db-table-container">
+
     <table>
       <thead>
         <tr>
@@ -39,8 +49,11 @@
           <th colspan="2">U-value</th>
         </tr>
       </thead>
+
       <tbody>
+
         {% for composite in user_composites %}
+
         <tr>
           <td class="col-1">
             {{ composite.name }}
@@ -60,9 +73,14 @@
             </form>
           </td>
         </tr>
+
         {% endfor %}
+
       </tbody>
     </table>
+
   </div>
+
 </div>
+
 {% endblock %}

@@ -26,11 +26,13 @@
   {% block body %}
 
   <nav class="navbar">
+
     <div class="nav-content-container">
 
       <img src="{% static 'img/logo.png' %}">
 
       <div class="nav-content mobile">
+
         <ul>
           <li class="navlink">
             <a href={% url 'calculator' %}>
@@ -54,9 +56,11 @@
             </a>
           </li>
         </ul>
+
       </div>
 
       <div class="nav-content desktop">
+
         <ul>
           <li class="navlink">
             <a href={% url 'calculator' %} class="desklink">
@@ -74,9 +78,11 @@
             </a>
           </li>
         </ul>
+
       </div>
 
     </div>
+
   </nav>
 
 
@@ -84,12 +90,14 @@
 
     {% block content %}
 
-
     {% endblock %}
 
   </div>
+
   {% endblock body %}
+
   <script type="text/javascript" src="{% static 'js/mobileVh.js' %}"></script>
+  
 </body>
 
 </html>
