@@ -3,7 +3,7 @@ from .models import Component, Composite
 
 
 class NewComponentForm(forms.ModelForm):
-    add_material = forms.BooleanField(widget=forms.HiddenInput, initial=True)
+    add_component = forms.BooleanField(widget=forms.HiddenInput, initial=True)
 
     class Meta:
         model = Component
@@ -31,8 +31,8 @@ class LoadForm(forms.ModelForm):
 
 
 class InsulatorForm(forms.Form):
-    calculate_insulation = forms.BooleanField(widget=forms.HiddenInput, initial=True)
-    target_u = forms.FloatField()
+    calculate_insulation_requirement = forms.BooleanField(widget=forms.HiddenInput, initial=True)
+    target_U_value = forms.FloatField()
 
 
 class DeleteForm(forms.Form):

@@ -16,15 +16,15 @@ class Composite(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     active = models.BooleanField(default=True)
 
-    def calcThickness(self):
+    def total_thickness(self):
         components = self.component_set.all()
         thicknesses = [component.thickness for component in components]
         return sum(thicknesses)
 
-    def calcU(self):
+    def U_value_2dp(self):
         components = self.component_set.all()
         if components:
-            Rs = [component.calcR() for component in components]
+            Rs = [component.R_value() for component in components]
             return round(1/(0.13 + sum(Rs) + 0.04), 2)
         else:
             return 'N/A'
@@ -41,10 +41,10 @@ class Component(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     active = models.BooleanField(default=True)
 
-    def calcR(self):
+    def R_value(self):
         return ((self.thickness * 0.001) / self.material.thermal_conductivity)
 
-    def displayR(self):
+    def R_value_2dp(self):
         return round((self.thickness * 0.001) / self.material.thermal_conductivity, 2)
 
     def __str__(self):

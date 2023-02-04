@@ -40,7 +40,7 @@
         </tr>
       </thead>
       <tbody>
-        {% for composite in composites %}
+        {% for composite in user_composites %}
         <tr>
           <td class="col-1">
             {{ composite.name }}
@@ -49,7 +49,7 @@
             {{ composite.calcThickness }} mm
           </td>
           <td>
-            {{ composite.calcU }} Wm<sup>-2</sup>K<sup>-1</sup>
+            {{ composite.U_value_2dp }} Wm<sup>-2</sup>K<sup>-1</sup>
           </td>
           <td class="table-del-container">
             <form method="POST" class="table-del-container">
