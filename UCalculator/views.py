@@ -30,7 +30,8 @@ def database(request):
 
 
 @login_required
-def home(request):
+def calculator(request):
+    print('On calculator...')
 
     def deactivate():
         for component in components:
@@ -46,6 +47,11 @@ def home(request):
     materials = Material.objects.all()
     composites = Composite.objects.filter(
         user=request.user).filter(active=True).all()
+
+    print(composites.first())
+    for composite in composites:
+        print('something')
+        print(composite.user)
 
     if composites:
         active_composite = composites[0]
@@ -71,11 +77,11 @@ def home(request):
                 component = form.save(commit=False)
                 component.user = user
                 component.save()
-                return redirect('home')
+                return redirect('calculator')
 
         if 'clear_material_view' in request.POST:
             deactivate()
-            return redirect('home')
+            return redirect('calculator')
 
         if 'save_composite' in request.POST:
             if components:
@@ -90,7 +96,7 @@ def home(request):
                     for component in components:
                         component.composite = composite
                         component.save()
-                    return redirect('home')
+                    return redirect('calculator')
 
         if 'calculate_insulation' in request.POST:
             form = InsulatorForm(request.POST)
@@ -112,7 +118,7 @@ def home(request):
                     for component in to_load.component_set.all():
                         component.active = True
                         component.save()
-                    return redirect('home')
+                    return redirect('calculator')
 
     component_form = NewComponentForm()
     save_form = SaveForm()
@@ -133,4 +139,4 @@ def home(request):
         'insulation': insulation
     }
 
-    return render(request, 'home.html', context)
+    return render(request, 'calculator.html', context)
