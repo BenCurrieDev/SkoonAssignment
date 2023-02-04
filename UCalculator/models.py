@@ -16,10 +16,10 @@ class Composite(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     active = models.BooleanField(default=True)
 
-    def total_thickness(self):
+    def total_depth(self):
         components = self.component_set.all()
-        thicknesses = [component.thickness for component in components]
-        return sum(thicknesses)
+        depths = [component.depth for component in components]
+        return sum(depths)
 
     def U_value_2dp(self):
         components = self.component_set.all()
@@ -34,7 +34,7 @@ class Composite(models.Model):
 
 
 class Component(models.Model):
-    thickness = models.IntegerField()
+    depth = models.IntegerField()
     material = models.ForeignKey(Material, on_delete=models.CASCADE)
     composite = models.ForeignKey(
         Composite, on_delete=models.CASCADE, blank=True, null=True)
@@ -42,10 +42,10 @@ class Component(models.Model):
     active = models.BooleanField(default=True)
 
     def R_value(self):
-        return ((self.thickness * 0.001) / self.material.thermal_conductivity)
+        return ((self.depth * 0.001) / self.material.K_value)
 
     def R_value_2dp(self):
-        return round((self.thickness * 0.001) / self.material.thermal_conductivity, 2)
+        return round((self.depth * 0.001) / self.material.K_value, 2)
 
     def __str__(self):
-        return self.material.name + ' (' + str(self.thickness) + 'mm)'
+        return self.material.name + ' (' + str(self.depth) + 'mm)'

@@ -72,7 +72,7 @@
 
           <div class="material-block"
             style="
-            width:{{ component.thickness }}px; 
+            width:{{ component.depth }}px; 
             background-color:{{ component.material.color }}">
           </div>
 
@@ -106,7 +106,7 @@
               {{ component.material.name }}
             </td>
             <td>
-              {{ component.thickness }} mm
+              {{ component.depth }} mm
             </td>
             <td>
               {{ component.R_value_2dp }} m<sup>2</sup>KW<sup>-1</sup>
@@ -173,7 +173,7 @@
     {% render_field component_form.add_component %}
     {% render_field component_form.material id="material" class="material-select" %}
 
-    {% render_field component_form.thickness id="thickness" class="depth-input" placeholder="mm depth..." %}
+    {% render_field component_form.depth id="depth" class="depth-input" placeholder="mm depth..." %}
 
     <button type="submit" name="addMaterialButton" class="submit-material">ADD</button>
 

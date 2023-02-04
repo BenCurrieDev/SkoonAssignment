@@ -8,7 +8,7 @@ class NewComponentForm(forms.ModelForm):
 
     class Meta:
         model = Component
-        fields = ['material', 'thickness']
+        fields = ['material', 'depth']
 
 
 class ClearForm(forms.Form):
