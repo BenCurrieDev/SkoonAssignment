@@ -1,5 +1,5 @@
 # skoonUlator
-## Model walls | calculate U-values and insulation requirements | save your results
+## Calculate U-values and insulation requirements
 
 ### Setup
 #### [Live Deployment Available](https://bencurriedev.pythonanywhere.com/)
