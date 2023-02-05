@@ -1,4 +1,4 @@
-# [skoonUlator](https://bencurriedev.pythonanywhere.com/)
+# skoonUlator
 
 ## Simple calculation of U-values and insultation requirements
 
