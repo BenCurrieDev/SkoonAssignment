@@ -92,12 +92,14 @@ Calculator:
 
 Database:
 - View tabulated materials and their respective K-values
-- View your saved comoposites total depth and U-value
+- View your saved comoposites *(tabulated)* total depth and U-value
 - Delete your saved composites
 
 ## Design
 ### Assumptions and Disclaimers
-
+#### Technical Assumptions
+- Component materials homogenous *(i.e. no mortar)*
+    - aumm
 ### Models
 
 ### Design Choices
@@ -116,8 +118,3 @@ Logo and favicon owned by [skoon](https://skoon.energy/)
 
 ## Features
 If your project has a lot of features, list them here.
-
-
-## Tests
-
-
