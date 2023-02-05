@@ -96,21 +96,66 @@ Database:
 - Delete your saved composites
 
 ## Design
-### Assumptions and Disclaimers
-#### Technical Assumptions
-- Component materials homogenous *(i.e. no mortar)*
-    - aumm
-### Models
+### Assumptions
 
-### Design Choices
-Responsive, mobile first approach
+#### User Requirement Assumptions
+- User needs to have easy access to app whilst on site
+    - Mobile / tablet design first approach preferable
+    - Simple UI preferred
+- User needs to be able to build up a composite
+- User needs to recieve U-values
+- User needs to be able to calculate insulation requirements for specific target U-values
+- User would benefit greatly from being able to edit their existing composites
+    - This feature is not critical and has therefore not yet been implemented due to time constraints
+
+#### Technical Assumptions
+
+Some technical assumptions were made to reduce complexity due to time constraints:
+- Effect of thermal bridging (i.e. mortar) negligible *(holds true in majority of cases)*
+- No construction defects present (i.e. cold bridging or air gaps)
+- No complex geometries (only vertical walls)
+
+
+### User Interface
+### Models
 
 ### Views
 
-## Technologies and Learnings
+## Technology and Learning
+### Technologies Used
+- Python
+- Django *(new to)*
+- HTML
+- CSS
+- Bootstrap (removed from current iteration to give greater control over styles) *(new to)*
+- SQLite *(new to)*
+- MySQL *(new to)*
+- JavaScript
+
+### Main Learnings
+- Django
+    - Models / views / templates
+    - Django template lanquage
+    - Authentication and administration
+    - Database setup, migrations and querys
+    - Back-end development
+    - Full-stack deployment
 
 ## Planned Features and Improvements
+### Planned Features
+- Enable user to easily edit / delete components from within the calculator page
+    - Will require collaboration with designer to find a way to add functionality whilst keeping simplicity
+- Enable calculations for more complex geometries i.e. roof to wall joint
+- Add greater variety of materials, and enable users to add their own
+- Enable savings calculations (financial and emissions)
 
+### Planned Improvements
+- Use dynamic viewport units to remiove need for JS
+- Adjust flex properties currently leading to slight changes in size of calculator graphical and table displays at smaller screen sizes
+- Improve media queries
+- Improve database page layout and table sizes at larger screen sizes
+
+- Provide individual browser tab names
 ## Credits
 Plans provided by [skoon](https://skoon.energy/)
 
