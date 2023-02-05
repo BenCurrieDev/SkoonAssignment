@@ -64,13 +64,36 @@ Navigate to [127.0.0.1:8000](http://127.0.0.1:8000)
 3. Start calculating
 
 ## Features
-Provide instructions and examples for use. Include screenshots as needed.
+Admin:
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+Model instance CRUD operations
+- Materials
+- Components
+- Composites
+- Users
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+Authentication:
+- User creation (signup or admin controlled)
+- User deletion (admin controlled)
+- Login
+- Authentication required for app use
+- User data not accessible to other users
+
+Calculator:
+- Create components
+- View components *(graphical and tabular representations)*
+- View component R-values
+- View U-Values
+- Calculate insulation requirements
+- Clear components
+- Load composites
+- Save / create composites
+- Close composites
+
+Database:
+- View tabulated materials and their respective K-values
+- View your saved comoposites total depth and U-value
+- Delete your saved composites
 
 ## Design
 ### Assumptions and Disclaimers
@@ -78,6 +101,7 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 ### Models
 
 ### Design Choices
+Responsive, mobile first approach
 
 ### Views
 
