@@ -2,7 +2,7 @@
 
 
 ### Setup
-#### [Live Deplyment Available](https://bencurriedev.pythonanywhere.com/)
+#### [Live Deployment Available](https://bencurriedev.pythonanywhere.com/)
 #### Local install:
 Prerequisite installs:
 - Python 3.*
