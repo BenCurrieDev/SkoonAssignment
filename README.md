@@ -122,7 +122,7 @@ Some technical assumptions were made to reduce complexity due to time constraint
     - Automatic U-value updates reduce user input requirements
     - Sleek [skoon](https://skoon.energy/) inspired design
 
-
+![Image of responsive layout](https://github.com/bencurriedev/SkoonAssignment/readmeAssets/responsive.jpg?raw=true])
 
 ### Models
 
