@@ -8,13 +8,24 @@ Prerequisite installs:
 - Python 3.*
 - Bash 
 - pip
+
 Clone the repository:
-`$ git clone https://github.com/BenCurrieDev/SkoonAssignment.git`
-`$ cd SkoonAssignment`
+
+```sh
+$ git clone https://github.com/BenCurrieDev/SkoonAssignment.git
+$ cd SkoonAssignment
+```
+
 Create a virtual environment to install dependencies and activate it:
-`$ python -m venv skoonulator_venv`
-`$ . skoonulator_venv/Scripts/activate`
+
+```sh
+$ python -m venv skoonulator_venv
+$ . skoonulator_venv/Scripts/activate
+```
+
 Install the dependencies:
+
+```sh
 `(skoonulator_venv)$ pip install -r requirements.txt`
 Once dependencies are installed - add local environmental variables:
 `(skoonulator_venv)$ echo -e "SECRET_KEY=NOT_THE_PRODUCTION_SECRET_KEYrqr_cjv4igscyu8&&(0ce\nDEBUG=True\nALLOWED_HOSTS=.localhost,127.0.0.1\nDATABASE_URL=sqlite:///db.sqlite3" > .env`
