@@ -26,13 +26,27 @@ $ . skoonulator_venv/Scripts/activate
 Install the dependencies:
 
 ```sh
-`(skoonulator_venv)$ pip install -r requirements.txt`
+(skoonulator_venv)$ pip install -r requirements.txt
+```
+
 Once dependencies are installed - add local environmental variables:
-`(skoonulator_venv)$ echo -e "SECRET_KEY=NOT_THE_PRODUCTION_SECRET_KEYrqr_cjv4igscyu8&&(0ce\nDEBUG=True\nALLOWED_HOSTS=.localhost,127.0.0.1\nDATABASE_URL=sqlite:///db.sqlite3" > .env`
+
+```sh
+(skoonulator_venv)$ echo -e "SECRET_KEY=NOT_THE_PRODUCTION_SECRET_KEYrqr_cjv4igscyu8&&(0ce\nDEBUG=True\nALLOWED_HOSTS=.localhost,127.0.0.1\nDATABASE_URL=sqlite:///db.sqlite3" > .env
+```
+
 Setup database:
-`(skoonulator_venv)$ python manage.py migrate`
+
+```sh
+(skoonulator_venv)$ python manage.py migrate
+```
+
 Run server:
-`(skoonulator_venv)$ python manage.py runserver`
-Navigate to [localhost](http://127.0.0.1:8000)
+
+```sh
+(skoonulator_venv)$ python manage.py runserver
+```
+
+[Navigate to localhost](http://127.0.0.1:8000)
 
 
