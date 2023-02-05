@@ -4,10 +4,10 @@
 ### Setup
 #### [Live Deployment Available](https://bencurriedev.pythonanywhere.com/)
 #### Local install:
-Prerequisite installs:
-- Python 3.*
-- Bash 
+Prerequisites:
 - pip
+- Bash
+- Python 3.*
 
 Clone the repository:
 
