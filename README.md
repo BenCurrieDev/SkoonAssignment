@@ -1,8 +1,10 @@
-# skoonUlator
+# [skoonUlator](https://bencurriedev.pythonanywhere.com/)
 
 ## Simple calculation of U-values and insultation requirements
 
-skoonUlator aims to speed up the assessment of insulation requirements. By equiping users with the ability to quickly and easily model the thermal properties of walls, accurate and bespoke insulation requirements can be calculated on the fly. skoonUlator hopes to provide an improved user experience, eventually leading to lower installment costs for consumers, with the ultimate goal of reducing greenhouse emissions.
+skoonUlator aims to speed up the assessment of insulation requirements. By equiping users with the ability to quickly and easily model the thermal properties of walls, accurate and bespoke insulation requirements can be calculated on the fly.
+
+skoonUlator hopes to provide an improved user experience, eventually leading to lower installment costs for consumers, with the ultimate goal of reducing greenhouse emissions.
 
 ## Setup
 ### [Live Deployment Available](https://bencurriedev.pythonanywhere.com/)
