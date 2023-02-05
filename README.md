@@ -125,8 +125,8 @@ Some technical assumptions were made to reduce complexity due to time constraint
 ![Image of responsive layout](https://raw.githubusercontent.com/bencurriedev/SkoonAssignment/documentation/readmeAssets/responsive.jpg?raw=true])
 
 ### Models
-
-### Views
+Fields and relations
+![Model diagram](https://raw.githubusercontent.com/bencurriedev/SkoonAssignment/master/readmeAssets/models.jpg?raw=true])
 
 ## Technology and Learning
 ### Technologies Used
