@@ -8,7 +8,7 @@ skoonUlator hopes to provide an improved user experience, eventually leading to 
 
 ## Setup
 ### [Live Deployment Available](https://bencurriedev.pythonanywhere.com/)
-### Installation:
+### Installation
 Requirements:
 - pip
 - Bash
@@ -56,10 +56,15 @@ Navigate to [127.0.0.1:8000](http://127.0.0.1:8000)
 
 
 ## Usage
-Sign up at:
+1. Sign up at:
 - Web deployment [signup](https://bencurriedev.pythonanywhere.com/signup/)
-- Local installment [signup](http://127.0.0.1:8000/signup/) *ensure server is running*
+- Local installment [signup](http://127.0.0.1:8000/signup/) *(ensure server is running)*
 
+2. Sign in
+
+3. Start calculating
+
+## Features
 Provide instructions and examples for use. Include screenshots as needed.
 
 To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
@@ -68,8 +73,22 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
     ![alt text](assets/images/screenshot.png)
     ```
 
+## Design
+### Assumptions and Disclaimers
+
+### Models
+
+### Design Choices
+
+### Views
+
+## Technologies and Learnings
+
+## Planned Features and Improvements
+
 ## Credits
 Plans provided by [skoon](https://skoon.energy/)
+
 Logo and favicon owned by [skoon](https://skoon.energy/)
 
 ## Features
