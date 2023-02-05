@@ -1,9 +1,9 @@
 # skoonUlator
 ## Calculate U-values and insulation requirements
 
-### Setup
-#### [Live Deployment Available](https://bencurriedev.pythonanywhere.com/)
-#### Local install:
+## Setup
+### [Live Deployment Available](https://bencurriedev.pythonanywhere.com/)
+### Local install:
 Prerequisites:
 - pip
 - Bash
