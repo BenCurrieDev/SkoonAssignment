@@ -115,8 +115,13 @@ Some technical assumptions were made to reduce complexity due to time constraint
 - No construction defects present (i.e. cold bridging or air gaps)
 - No complex geometries (only vertical walls)
 
-
 ### User Interface
+- Implemented a mobile first, responsive design
+    - No scrolling, aiming to make usage easier, especially when on the move
+    - Calculation critical buttons positioned near bottom of the screen to enable easy 1 handed mobile use
+    - Automatic U-value updates reduce user input requirements
+    - Sleek [skoon](https://skoon.energy/) inspired design
+
 ### Models
 
 ### Views
