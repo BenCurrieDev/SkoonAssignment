@@ -61,7 +61,7 @@ Navigate to [127.0.0.1:8000](http://127.0.0.1:8000)
 
 2. Sign in
 
-3. Start calculating
+3. Start calculating *(more information on full feature set below)*
 
 ## Features
 Admin:
@@ -122,6 +122,8 @@ Some technical assumptions were made to reduce complexity due to time constraint
     - Automatic U-value updates reduce user input requirements
     - Sleek [skoon](https://skoon.energy/) inspired design
 
+
+
 ### Models
 
 ### Views
@@ -148,23 +150,22 @@ Some technical assumptions were made to reduce complexity due to time constraint
 
 ## Planned Features and Improvements
 ### Planned Features
+- Comprehensive test suite
 - Enable user to easily edit / delete components from within the calculator page
     - Will require collaboration with designer to find a way to add functionality whilst keeping simplicity
 - Enable calculations for more complex geometries i.e. roof to wall joint
 - Add greater variety of materials, and enable users to add their own
 - Enable savings calculations (financial and emissions)
+- Improved save functionality (i.e. introduce save as)
 
 ### Planned Improvements
-- Use dynamic viewport units to remiove need for JS
-- Adjust flex properties currently leading to slight changes in size of calculator graphical and table displays at smaller screen sizes
+- Use dynamic viewport units to remiove need for JavaScript
 - Improve media queries
 - Improve database page layout and table sizes at larger screen sizes
-
 - Provide individual browser tab names
+- Adjust flex properties currently leading to slight changes in size of calculator graphical and table displays at smaller screen sizes
+
 ## Credits
 Plans provided by [skoon](https://skoon.energy/)
 
 Logo and favicon owned by [skoon](https://skoon.energy/)
-
-## Features
-If your project has a lot of features, list them here.
