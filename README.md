@@ -1,17 +1,13 @@
 # skoonUlator
 
-## Calculate U-values / insultation requirements
+## Simple calculation of U-values and insultation requirements
 
 skoonUlator aims to speed up the assessment of insulation requirements. By equiping users with the ability to quickly and easily model the thermal properties of walls, accurate and bespoke insulation requirements can be calculated on the fly. skoonUlator hopes to provide an improved user experience, eventually leading to lower installment costs for consumers, with the ultimate goal of reducing greenhouse emissions.
-
-
-- What did you learn?
-
 
 ## Setup
 ### [Live Deployment Available](https://bencurriedev.pythonanywhere.com/)
 ### Installation:
-Prerequisites:
+Requirements:
 - pip
 - Bash
 - Python 3.*
@@ -54,15 +50,13 @@ Run server:
 (skoonulator_venv)$ python manage.py runserver
 ```
 
-[Navigate to localhost](http://127.0.0.1:8000)
+Navigate to [127.0.0.1:8000](http://127.0.0.1:8000)
 
 
 ## Usage
-
 Sign up at:
-
-- [Link for web deployment](https://bencurriedev.pythonanywhere.com/signup/)
-- [Link for local installment](http://127.0.0.1:8000/signup/)
+- Web deployment [signup](https://bencurriedev.pythonanywhere.com/signup/)
+- Local installment [signup](http://127.0.0.1:8000/signup/) *ensure server is running*
 
 Provide instructions and examples for use. Include screenshots as needed.
 
@@ -73,12 +67,10 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
     ```
 
 ## Credits
-
 Plans provided by [skoon](https://skoon.energy/)
 Logo and favicon owned by [skoon](https://skoon.energy/)
 
 ## Features
-
 If your project has a lot of features, list them here.
 
 
