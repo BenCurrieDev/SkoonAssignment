@@ -2,9 +2,9 @@
 
 ## Simple calculation of U-values and insultation requirements
 
-skoonUlator aims to speed up the assessment of insulation requirements. By equiping users with the ability to quickly and easily model the thermal properties of walls, accurate and bespoke insulation requirements can be calculated on the fly.
+skoonUlator aims to speed up the assessment of insulation requirements. By equipping users with the ability to quickly and easily model the thermal properties of walls, accurate and bespoke insulation requirements can be calculated on the fly.
 
-skoonUlator hopes to provide an improved user experience, eventually leading to lower installment costs for consumers, with the ultimate goal of reducing greenhouse emissions.
+skoonUlator hopes to provide an improved user experience, eventually leading to lower installation costs for consumers, with the ultimate goal of reducing greenhouse emissions.
 
 ## Setup
 ### [Live Deployment Available](https://bencurriedev.pythonanywhere.com/)
@@ -57,7 +57,7 @@ Navigate to [127.0.0.1:8000](http://127.0.0.1:8000)
 ## Usage
 1. Sign up at:
 - Web deployment [signup](https://bencurriedev.pythonanywhere.com/signup/)
-- Local installment [signup](http://127.0.0.1:8000/signup/) *(ensure server is running)*
+- Locally hosted [signup](http://127.0.0.1:8000/signup/) *(ensure server is running)*
 
 2. Sign in
 
@@ -92,7 +92,7 @@ Calculator:
 
 Database:
 - View tabulated materials and their respective K-values
-- View your saved comoposites *(tabulated)* total depth and U-value
+- View your saved composites *(tabulated)* total depth and U-value
 - Delete your saved composites
 
 ## Design
@@ -103,7 +103,7 @@ Database:
     - Mobile / tablet design first approach preferable
     - Simple UI preferred
 - User needs to be able to build up a composite
-- User needs to recieve U-values
+- User needs to receive U-values
 - User needs to be able to calculate insulation requirements for specific target U-values
 - User would benefit greatly from being able to edit their existing composites
     - This feature is not critical and has therefore not yet been implemented due to time constraints
@@ -141,9 +141,9 @@ Some technical assumptions were made to reduce complexity due to time constraint
 ### Main Learnings
 - Django
     - Models / views / templates
-    - Django template lanquage
+    - Django template language
     - Authentication and administration
-    - Database setup, migrations and querys
+    - Database setup, migrations and queries
     - Back-end development
     - Full-stack deployment
 
@@ -152,17 +152,19 @@ Some technical assumptions were made to reduce complexity due to time constraint
 - Comprehensive test suite
 - Enable user to easily edit / delete components from within the calculator page
     - Will require collaboration with designer to find a way to add functionality whilst keeping simplicity
-- Enable calculations for more complex geometries i.e. roof to wall joint
+- Enable calculations for more complex geometries, i.e., roof to wall joint
 - Add greater variety of materials, and enable users to add their own
 - Enable savings calculations (financial and emissions)
-- Improved save functionality (i.e. introduce save as)
+- Improved save functionality, i.e., introduce save as
+- Password reset
 
 ### Planned Improvements
-- Use dynamic viewport units to remiove need for JavaScript
+- Use dynamic viewport units to remove need for JavaScript
 - Improve media queries
 - Improve database page layout and table sizes at larger screen sizes
 - Provide individual browser tab names
 - Adjust flex properties currently leading to slight changes in size of calculator graphical and table displays at smaller screen sizes
+- Improved signup / login error feedback for user
 
 ## Credits
 Plans provided by [skoon](https://skoon.energy/)
